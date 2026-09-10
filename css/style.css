@@ -1,0 +1,314 @@
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+.active-tab {
+    color: #b01b31;
+    border-bottom: 2px solid #b01b31;
+    font-weight: 600;
+}
+.active-subtab {
+    background-color: #b01b31 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(176, 27, 49, 0.25);
+}
+
+
+/* --- GLOBALE STYLES & RESET --- */
+:root {
+    --primary-red: #b81434;
+    --primary-dark: #8c0d25;
+    --bg-light: #f9f9f9;
+    --text-main: #222222;
+    --text-muted: #555555;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-main);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-red);
+}
+
+/* --- LAYOUT & CONTAINERS --- */
+.hero-banner {
+    background-color: var(--primary-red);
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-banner p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.main-container {
+    max-width: 1000px;
+    margin: -50px auto 60px auto;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+}
+
+.breadcrumb {
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.breadcrumb a {
+    color: var(--primary-red);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* --- TYPOGRAFIE & INHALT --- */
+h2 {
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+
+h2:first-of-type {
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 16px;
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+/* --- HIGHLIGHT BOXES & QUOTES --- */
+.quote-box {
+    background-color: #fdf2f4;
+    border-left: 4px solid var(--primary-red);
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.quote-box p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
+
+.quote-box span {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* --- BRANCHEN GRID --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.skill-card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-card span {
+    color: var(--primary-red);
+}
+
+/* --- PREIS KACHELN --- */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.price-card {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    transition: border-color 0.2s ease;
+}
+
+.price-card.featured {
+    border-color: var(--primary-red);
+    background-color: #fffafb;
+}
+
+.price-card h3 {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-card .amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+.price-card ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.price-card li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+
+.price-card li:last-child {
+    border-bottom: none;
+}
+
+/* --- CTA SEKTION --- */
+.cta-box {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .main-container {
+        padding: 20px;
+        margin-top: -30px;
+    }
+
+    .hero-banner h1 {
+        font-size: 2rem;
+    }
+}
