@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumente & Zertifikate – Kohlweg Headhunting</title>
+    <title>FAQ - Kohlweg Headhunting & Direktansprache</title>
+    <!--script-- src="https://cdn.tailwindcss.com"></script-->
     <link href="css/output.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
 
@@ -17,9 +19,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
 
+            <!-- BRAND LOGO -->
             <a href="index.html" class="flex items-center gap-3 group">
                 <div>
-                    <img src="images/logo-kohlweg.png" width=100>
+                    <img src="images/logo-kohlweg.png" width=100 alt="Sandra Kohlweg Logo - Headhunting & Direktansprache">
                 </div>
                 <div class="flex flex-col">
                     <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">KOHLWEG</span>
@@ -27,107 +30,441 @@
                 </div>
             </a>
 
+            <!-- DESKTOP NAVIGATION -->
             <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 text-sm font-medium">
                 <a href="index.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Start</a>
-                <a href="ueber-mich.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Über mich</a>
                 <a href="leistungen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Leistungen</a>
+                <a href="ueber-mich.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Über mich</a>
                 <a href="referenzen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Referenzen</a>
-                <a href="dokumente.html" class="px-3 py-2 active-tab transition-colors">Dokumente & Zertifikate</a>
+                <a href="faq.html" class="px-3 py-2 active-tab text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
+                <a href="faq-kl.html" class="px-3 py-2 active-tab text-slate-600 hover:text-brand-600 transition-colors">FAQ Kl</a>
                 <a href="kontakt.html" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">Kontakt</a>
             </nav>
 
+            <!-- MOBILE MENU BUTTON -->
             <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </div>
 
+    <!-- MOBILE NAVIGATION MENU -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
         <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Start</a>
-        <a href="ueber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Über mich</a>
         <a href="leistungen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Leistungen</a>
+        <a href="ueber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Über mich</a>
         <a href="referenzen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Referenzen</a>
-        <a href="dokumente.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">Dokumente & Zertifikate</a>
+        <a href="faq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">FAQ</a>
+        <a href="faq-kl.html"
+           class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">FAQ Kl</a>
         <a href="kontakt.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Kontakt</a>
     </div>
 </header>
 
-<!-- BRAND HERO BANNER -->
-<div class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-    <div class="max-w-7xl mx-auto relative z-10 text-center">
-        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white backdrop-blur-md mb-4 tracking-wider uppercase">Personalberatung mit Haltung & Vertriebsgen</span>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4">Dokumente & Zertifikate</h1>
-        <p class="max-w-2xl mx-auto text-brand-100 text-base sm:text-lg leading-relaxed">
-            Transparente Informationen & Rechtsgrundlagen.
+<!-- HERO SECTION (ROTER HINTERGRUND AUS DEM SCREENSHOT) -->
+<div id="hero-banner" class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+
+    <div class="max-w-4xl mx-auto text-center space-y-4 relative z-10">
+            <span class="px-4 py-1.5 bg-white/10 text-white rounded-full text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-1.5 backdrop-blur-sm border border-white/20">
+                Personalberatung mit Haltung & Vertriebsgen
+            </span>
+        <h1 class="text-3xl sm:text-5xl font-serif font-bold tracking-tight leading-tight">
+            FAQ Headhunting – häufige Fragen
+        </h1>
+        <p class="text-base sm:text-lg text-brand-100 max-w-2xl mx-auto font-normal">
+            Hier beantworte ich die Fragen, die mir Unternehmen rund um Headhunting, Direktansprache und Personalvermittlung am häufigsten stellen.
         </p>
     </div>
 </div>
 
-<!-- MAIN CONTENT CONTAINER -->
-<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="space-y-8">
-        <div class="bg-white rounded-3xl p-10 border border-slate-200 max-w-3xl mx-auto space-y-6 shadow-sm text-center">
-            <h2 class="text-3xl font-serif font-bold text-slate-900">Dokumente & Zertifikate</h2>
-            <p class="text-slate-600 leading-relaxed">
-                Hier finden Sie relevante Unterlagen, Nachweise und Rahmenbedingungen zur Zusammenarbeit.
-            </p>
-        </div>
-    </div>
-</main>
+<!-- MAIN CONTENT
+<main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12" -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
 
-<!-- GLOBAL CTA SECTION -->
-<section class="bg-brand-50 border-t border-brand-100 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-            <h3 class="text-xl font-bold text-slate-900">Suchen Sie aktuell eine Fach- oder Führungskraft?</h3>
-            <p class="text-slate-600 text-sm mt-1">Lassen Sie uns einfach mal unverbindlich ratschen.</p>
+    <!-- KATEGORIEN / QUICK LINKS -->
+    <nav id="subnav-container" class="sticky top-20 z-40 bg-slate-50/90 backdrop-blur py-1">
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium">
+            <a href="#prozess" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-brand-600 hover:text-brand-600 shadow-sm transition-all flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i> Ablauf & Dauer
+            </a>
+            <a href="#honorar"
+               class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-brand-600 hover:text-brand-600 shadow-sm transition-all flex items-center gap-1.5">
+                <i data-lucide="coins" class="w-3.5 h-3.5 text-slate-400"></i> Honorar & Kosten
+            </a>
+            <a href="#vertraulichkeit" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-brand-600 hover:text-brand-600 shadow-sm transition-all flex items-center gap-1.5">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-slate-400"></i> Vertraulichkeit
+            </a>
+            <a href="#maerkte" class="px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-600 hover:border-brand-600 hover:text-brand-600 shadow-sm transition-all flex items-center gap-1.5">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-slate-400"></i> Regionen & Positionen
+            </a>
         </div>
-        <a href="kontakt.html" class="px-6 py-3 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20 shrink-0">
-            Erstgespräch vereinbaren
-        </a>
+    </nav>
+
+    <!-- FAQ CONTAINER -->
+    <div class="space-y-4">
+
+        <!-- FRAGE 1 -->
+        <details
+                class="scroll-mt-36 group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md" id="prozess">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Wie lange dauert Headhunting?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Das hängt unter anderem davon ab, wie schnell und entschlussfreudig das Unternehmen ist. Von unter einer Woche bis zu sechs Monaten war bei mir schon alles dabei.</p>
+                <p>Manchmal finde ich sehr schnell den richtigen Menschen. Bei anderen Positionen braucht es viele Gespräche, Empfehlungen und mehrere Anläufe.</p>
+                <p class="font-medium text-slate-800 bg-brand-50/50 p-3 rounded-lg border-l-4 border-brand-600">
+                    Was tatsächlich einen großen Unterschied macht: Wie schnell reagiert das Unternehmen, wenn ein interessanter Kandidat da ist? Gute Kandidaten warten nicht unbedingt wochenlang auf eine Entscheidung.
+                </p>
+            </div>
+        </details>
+
+        <!-- FRAGE 2 -->
+        <details class="scroll-mt-36 group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md" id="honorar">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Wann wird ein Headhunter bezahlt?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Bei mir wird das Honorar erst fällig, wenn der Kandidat seinen Arbeitsvertrag unterschrieben hat.</p>
+                <p class="font-medium text-slate-900">Ich arbeite grundsätzlich erfolgsorientiert.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 3 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Was passiert, wenn kein Kandidat gefunden wird?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Kein Kandidat, keine Rechnung von mir.</p>
+                <p>Wenn ich allerdings merke, dass eine Position unter den vereinbarten Bedingungen nicht zu besetzen ist, behalte ich mir vor, die Suche zu beenden.</p>
+                <p>Möchte das Unternehmen trotzdem, dass ich weitersuche, können wir für die weitere Suche eine Vorabzahlung vereinbaren.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 4 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Kann ein Headhunter Mitarbeiter eines Wettbewerbers ansprechen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-medium text-slate-900">Selbstverständlich. Gerade dort sitzen schließlich häufig die Menschen mit der Erfahrung, die gesucht wird.</p>
+                <p>Manchmal bekomme ich von meinen Auftraggebern allerdings sogenannte Sperrkunden genannt. Das können beispielsweise Unternehmen sein, mit denen man eng oder freundschaftlich verbunden ist oder für die man selbst arbeitet. Dort spreche ich dann selbstverständlich niemanden an.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 5 -->
+        <details class="scroll-mt-36 group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md" id="vertraulichkeit">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Kann eine Personalsuche vertraulich durchgeführt werden?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>In jedem Fall. Gerade wenn eine Position neu besetzt werden soll und der derzeitige Stelleninhaber noch nichts davon weiß, ist Vertraulichkeit wichtig.</p>
+                <p>Ich nenne den Namen meines Auftraggebers deshalb nicht zwingend beim ersten Kontakt. Ich lasse einen Kandidaten aber auch nicht ewig im Unklaren. Spätestens wenn er mir seinen Lebenslauf schickt und wir konkret über die Position sprechen, erfährt er, wer sein mögliches Gegenüber ist.</p>
+                <p class="text-xs uppercase tracking-wider font-semibold text-slate-400">Vertraulichkeit funktioniert schließlich in beide Richtungen.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 6 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Muss der aktuelle Stelleninhaber von der Suche wissen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-medium text-slate-900">Nein.</p>
+                <p>Ich hatte sogar einmal den Fall, dass sich der Stelleninhaber unabhängig von meinem Auftrag bei mir gemeldet hat, weil auch er gerne vermittelt werden wollte. Da waren offenbar beide Seiten nicht mehr so richtig happy.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 7 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Wie werden Kandidaten angesprochen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Persönlich und direkt.</p>
+                <p>Ich identifiziere Menschen, deren Erfahrung zur Position passen könnte, und nehme Kontakt mit ihnen auf. Dabei geht es zunächst nicht darum, jemandem mit Gewalt einen neuen Job zu verkaufen.</p>
+                <p>Ich möchte herausfinden, ob derjenige grundsätzlich offen für eine Veränderung ist und was passieren müsste, damit ein Wechsel überhaupt interessant wäre.</p>
+                <p>Sehr viele der Menschen, die ich anspreche, suchen gerade keinen neuen Job, können aber begeistert werden. Und genau darum geht es beim Headhunting.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 8 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Was ist der Unterschied zwischen Headhunting und Personalvermittlung?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Die Begriffe werden heute ziemlich unterschiedlich verwendet. Für meine Arbeit ist der entscheidende Punkt die <strong>aktive Suche und Direktansprache</strong>.</p>
+                <p>Ich warte nicht darauf, dass sich geeignete Kandidaten auf eine Stellenanzeige bewerben. Ich identifiziere Menschen, die zur Position passen könnten, und spreche sie direkt an.</p>
+                <p>Der passende Kandidat sitzt nämlich sehr häufig gerade zufrieden oder zumindest halbwegs zufrieden bei einem anderen Unternehmen.</p>
+            </div>
+        </details>
+
+        <!-- HIGHLIGHT BOX: HONORAR (ROTES DESIGN) -->
+        <div class="my-8 p-6 sm:p-8 bg-brand-600 text-white rounded-3xl space-y-4 shadow-xl">
+            <div class="flex items-center gap-2 text-brand-200 font-semibold text-sm uppercase tracking-wider">
+                <i data-lucide="calculator" class="w-5 h-5"></i>
+                Transparente Preisgestaltung
+            </div>
+            <h3 class="text-2xl font-serif font-bold">Wie hoch ist das Honorar eines Headhunters?</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div class="bg-brand-700/80 p-4 rounded-xl border border-brand-500/30">
+                    <span class="text-3xl font-bold text-white block mb-1">20 %</span>
+                    <span class="text-xs text-brand-100">des Jahresbruttogehalts bei der erfolgreichen Besetzung einer einzelnen Position.</span>
+                </div>
+                <div class="bg-brand-700/80 p-4 rounded-xl border border-brand-500/30">
+                    <span class="text-3xl font-bold text-white block mb-1">15 %</span>
+                    <span class="text-xs text-brand-100">des Jahresbruttogehalts pro Position bei Beauftragung von mindestens zwei Positionen.</span>
+                </div>
+            </div>
+            <div class="text-sm text-brand-100 space-y-2 pt-2 border-t border-brand-500/30">
+                <p>Berechnungsgrundlage ist das Einkommen, das der Mitarbeiter bei 100 % Zielerreichung innerhalb eines Jahres verdient. Bei besonders hoch dotierten Positionen vereinbare ich einen Höchstbetrag.</p>
+                <p class="font-semibold text-white">Zusätzliche Such- oder Verwaltungskosten gibt es bei mir nicht.</p>
+            </div>
+        </div>
+
+        <!-- FRAGE 9 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Was passiert, wenn der Kandidat die Stelle nicht antritt?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Dann suche ich neu.</p>
+                <p>Tritt ein von mir vermittelter Kandidat die vereinbarte Stelle nicht an, lasse ich meinen Auftraggeber damit nicht allein. Ich nehme die Suche wieder auf und suche kostenfrei nach einem Ersatz.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 10 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Was passiert, wenn der Kandidat im Probemonat kündigt?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Beendet der vermittelte Mitarbeiter das Dienstverhältnis innerhalb des Probemonats auf eigenen Wunsch, biete ich eine <strong>kostenfreie Nachbesetzung</strong> an.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 11 -->
+        <details class="scroll-mt-36 group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md" id="maerkte">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Kann ein österreichisches Unternehmen Kandidaten in Deutschland suchen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Natürlich. Und gerade für österreichische Unternehmen kann das ausgesprochen sinnvoll sein.</p>
+                <p>Ich habe fast 25 Jahre in Deutschland gearbeitet und suche deshalb für meine österreichischen Auftraggeber ganz bewusst auch auf dem deutschen Markt.</p>
+                <p>Überraschenderweise ist es manchmal einfacher, jemanden aus Deutschland für einen Umzug nach Österreich zu begeistern, als jemanden in Kärnten vom einen Tal ins nächste zu bekommen.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 12 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Sucht ein Headhunter nur in Österreich?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Nein.</p>
+                <p>Ich suche dort, wo ich geeignete Menschen finden kann – in Österreich und Deutschland, aber je nach Position auch in anderen Ländern.</p>
+                <p>Wir haben insgesamt zu wenig Fachkräfte. Ich bin deshalb nicht besonders begeistert von der Vorstellung, dass österreichische Unternehmen sich gegenseitig immer wieder dieselben Mitarbeiter abwerben und damit nebenbei die Gehälter in immer höhere Regionen treiben.</p>
+                <p>Gerade bei Positionen, bei denen perfekte Deutschkenntnisse nicht zwingend notwendig sind, öffnet die internationale Suche einen erheblich größeren Kandidatenmarkt.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 13 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Welche Positionen kann ein Headhunter besetzen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Im Grunde jede Position, zu deren Kandidatenmarkt er einen vernünftigen Zugang hat. Und genau deshalb behaupte ich nicht, alles gleich gut zu können.</p>
+                <p>Blue Collar ist beispielsweise nicht mein Feld. Bei Steuerberatern bin ich einmal fürchterlich gescheitert. Auch bei Bauleitern tue ich mir schwer, weil ich schlicht zu wenig über diesen Markt weiß.</p>
+                <p>Dafür habe ich bereits sehr unterschiedliche Fach- und Führungspositionen besetzt – vom CFO über Programmierer, Techniker, Einkäufer und Projektleiter bis hin zum Vertrieb.</p>
+                <p class="font-medium text-slate-900">Vertrieb ist und bleibt mein Lieblingsfeld. Erstaunlicherweise liegen mir aber auch viele technische Positionen sehr gut.</p>
+                <p>Und sobald für eine Position nicht zwingend sehr gute Deutschkenntnisse notwendig sind, wird es für mich besonders interessant. Dann können wir die Suche international öffnen – und plötzlich wird aus einem sehr kleinen Kandidatenmarkt ein ziemlich großer.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 14 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Kann ich einen Headhunter beauftragen, obwohl die Stelle noch besetzt ist?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p class="font-semibold text-slate-900">Selbstverständlich. Genau das wird regelmäßig gemacht.</p>
+                <p>Vielleicht soll noch keine Stellenanzeige veröffentlicht werden. Vielleicht möchte das Unternehmen zunächst den Markt sondieren. Oder man weiß selbst noch nicht, ob sich überhaupt jemand finden lässt, der für die Position geeigneter wäre.</p>
+                <p>In solchen Fällen kann ich zunächst vertraulich suchen und geeignete Kandidaten ansprechen, ohne den Namen meines Auftraggebers sofort offenzulegen.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 15 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Muss ich einen Headhunter exklusiv beauftragen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p><strong class="text-slate-900">Nein.</strong> Ich halte es allerdings für sehr sinnvoll.</p>
+                <p>Denn mit der Art, wie eine Position am Markt angeboten wird, entscheidet ein Unternehmen auch darüber, wie es nach außen wahrgenommen wird. Wenn mehrere Personalberater gleichzeitig dieselben Menschen wegen derselben Position kontaktieren, wirkt das schnell beliebig. Und Vertraulichkeit wird schwieriger.</p>
+                <p class="text-xs text-slate-500 italic">Ich kenne einen Mitbewerber, der CFO-Positionen auf Willhaben sucht und Anrufern sehr großzügig erzählt, um welches Unternehmen es geht. Dumm nur, wenn der aktuelle Stelleninhaber anruft.</p>
+                <p>Gerade bei vertraulichen oder hochrangigen Positionen sollte deshalb ziemlich klar sein, wer die Suche führt, wen man anspricht und welche Informationen nach außen gehen.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 16 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Was braucht ein Headhunter vom Unternehmen, bevor die Suche beginnt?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p>Das absolute Minimum sind die fachlichen Anforderungen und eine realistische Gehaltsspanne. Der Königsweg ist aber etwas anderes.</p>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2 text-sm text-slate-800">
+                    <p class="font-semibold">Ich möchte wissen:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Was macht euch als Arbeitgeber gut – und was macht euch herausfordernd?</li>
+                        <li>Warum ist der Vorgänger gegangen? Oder warum wurde er gekündigt?</li>
+                        <li>Was für ein Mensch ist die Führungskraft? Wie wird geführt und kommuniziert?</li>
+                        <li>Wo liegen die Dinge, die einem neuen Mitarbeiter möglicherweise auf die Nerven gehen werden?</li>
+                    </ul>
+                </div>
+                <p>Ich spreche mit meinen Kandidaten sehr ehrlich und halte auch mit den Herausforderungen nicht hinter dem Berg. Wenn eine Führungskraft temperamentvoll ist, sollte ein Kandidat das wissen. Kommuniziert jemand sehr sachlich, direkt und wenig emotional, ist auch das eine wichtige Information.</p>
+                <p>Ich bin immer wieder überrascht, wie gelassen Kandidaten auf solche Dinge reagieren. Aber manche sagen eben auch sofort: Nein, das kommt für mich nicht infrage. Perfekt. Dann wissen wir es, bevor beide Seiten sehr viel Zeit investieren.</p>
+                <p class="font-medium text-slate-900">Es lohnt sich nicht, eine Position oder ein Unternehmen schöner zu verkaufen, als es ist. Vielleicht bekommen wir damit einen Kandidaten durch die Vertragsunterschrift. Aber mittelfristig passt es trotzdem nicht. Und dann haben alle verloren.</p>
+            </div>
+        </details>
+
+        <!-- FRAGE 17 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 open:shadow-md">
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-slate-900 hover:text-brand-600 transition-colors">
+                <span class="text-base sm:text-lg">Lohnt sich ein Headhunter für mittelständische Unternehmen?</span>
+                <span class="ml-4 p-1 rounded-full bg-slate-100 group-open:bg-brand-50 group-open:text-brand-600 group-open:rotate-180 transition-transform duration-200">
+                        <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                    </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-100 pt-4 space-y-3">
+                <p><strong class="text-slate-900">Das kommt darauf an.</strong></p>
+                <p>Wenn im Unternehmen jemand ausreichend Zeit, Erfahrung, Netzwerk und Lust auf Direktansprache hat, kann man selbstverständlich selbst suchen.</p>
+                <p>Jemanden zu finden, ist allerdings schnell eine Vollzeitaufgabe. Ich sitze teilweise wochenlang an einer einzigen Position, recherchiere, spreche Menschen an, führe Gespräche, verwerfe Kandidaten und suche weiter.</p>
+                <p>Und gerade Menschen, die selbst gar nicht auf Jobsuche sind, erreicht eine Stellenanzeige nun einmal nicht. Wenn genau diese Menschen für eine Position interessant sind, kann sich ein Headhunter sehr schnell lohnen.</p>
+            </div>
+        </details>
+
     </div>
-</section>
+
+    <!-- FOOTER CALL TO ACTION -->
+    <section class="bg-white rounded-3xl p-8 border border-slate-200 text-center space-y-4 shadow-sm">
+        <h3 class="text-xl font-serif font-bold text-slate-900">Noch Fragen offen?</h3>
+        <p class="text-slate-600 text-sm max-w-lg mx-auto">
+            Lass uns direkt darüber sprechen, wie eine passgenaue Suche für deine Vakanz aussehen kann.
+        </p>
+        <div class="pt-2">
+            <a href="kontakt.html"
+               class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-all shadow-md gap-2">
+                <i data-lucide="mail" class="w-4 h-4"></i> Jetzt Kontakt aufnehmen
+            </a>
+        </div>
+    </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
+
+        <!-- SPALTE 1: KOHLWEG LOGO & INFO -->
         <div class="space-y-3 md:col-span-2">
             <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
-                <div><img src="images/logo-kohlweg.png" width=30></div>
+                <div><img src="images/logo-kohlweg.png" width=30 alt="Kohlweg Logo"></div>
                 KOHLWEG
             </div>
-            <p class="text-xs leading-relaxed max-w-sm">
+            <p class="text-xs leading-relaxed">
                 Headhunting & Direktansprache für Fach- und Führungskräfte in Österreich und Deutschland. Schlanke Strukturen, faire Honorare (15–20 %) und echte Vertriebserfahrung.
             </p>
         </div>
+
+        <!-- SPALTE 2: LEISTUNGEN -->
         <div>
             <h4 class="text-white text-sm font-bold mb-3">Leistungen</h4>
             <ul class="space-y-2 text-xs">
-                <li><a href="leistungen.html" class="hover:text-white">Direktansprache</a></li>
-                <li><a href="leistungen.html" class="hover:text-white">Headhunting Kärnten</a></li>
-                <li><a href="leistungen.html" class="hover:text-white">Preise & Honorare</a></li>
+                <li><a href="leistungen.html#direktansprache" class="hover:text-white transition-colors">Direktansprache</a></li>
+                <li><a href="leistungen.html#kaernten" class="hover:text-white transition-colors">Headhunting Kärnten</a></li>
+                <li><a href="leistungen.html#preise" class="hover:text-white transition-colors">Preise & Honorare</a></li>
             </ul>
         </div>
+
+        <!-- SPALTE 3: ÜBER MICH & FAQ -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="ueber-mich.html" class="hover:text-white transition-colors">Über mich</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="referenzen.html" class="hover:text-white transition-colors">Referenzen</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></h4>
+        </div>
+
+        <!-- SPALTE 4: RECHTLICHES -->
         <div>
             <h4 class="text-white text-sm font-bold mb-3">Rechtliches</h4>
             <ul class="space-y-2 text-xs">
-                <li><a href="#" class="hover:text-white">Impressum</a></li>
-                <li><a href="#" class="hover:text-white">Datenschutz</a></li>
-                <li><a href="#" class="hover:text-white">AGB</a></li>
+                <li><a href="impressum.html" class="hover:text-white transition-colors">Impressum</a></li>
+                <li><a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a></li>
+                <li><a href="agb.html" class="hover:text-white transition-colors">AGB</a></li>
             </ul>
         </div>
+
     </div>
+
+    <!-- COPYRIGHT -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
         &copy; 2026 Kohlweg Headhunting. Alle Rechte vorbehalten.
     </div>
 </footer>
 
+<!-- ICON INITIALISIERUNG -->
 <script>
     lucide.createIcons();
-    function toggleMobileMenu() {
-        document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
 </script>
 </body>
 </html>

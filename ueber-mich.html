@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich – Kohlweg Headhunting & Direktansprache</title>
+    <link href="css/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
+
+<!-- TOP HEADER / BRAND BAR -->
+<header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div>
+                    <img src="images/logo-kohlweg.png" width="100"  alt="Sandra Kohlweg Logo - Headhunting & Direktansprache">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">KOHLWEG</span>
+                    <span class="text-[10px] tracking-widest text-slate-500 uppercase font-semibold">Headhunting & Personalberatung</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 text-sm font-medium">
+                <a href="index.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Start</a>
+                <a href="leistungen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Leistungen</a>
+                <a href="uber-mich.html" class="px-3 py-2 active-tab transition-colors">Über mich</a>
+                <a href="referenzen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Referenzen</a>
+                <a href="faq.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
+                <a href="kontakt.html" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">Kontakt</a>
+            </nav>
+
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+        <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Start</a>
+        <a href="leistungen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Leistungen</a>
+        <a href="uber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">Über mich</a>
+        <a href="referenzen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Referenzen</a>
+        <a href="faq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
+        <a href="kontakt.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Kontakt</a>
+    </div>
+</header>
+
+<!-- BRAND HERO BANNER -->
+<div class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white backdrop-blur-md mb-4 tracking-wider uppercase">Persönlichkeit mit Haltung & Vertriebsgen</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4">Sandra Kohlweg</h1>
+        <p class="max-w-2xl mx-auto text-brand-100 text-base sm:text-lg leading-relaxed">
+            Headhunterin & Recruiterin aus Leidenschaft – über Umwege, Führung und 30 Jahre Vertriebserfahrung zum eigenen Weg.
+        </p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT CONTAINER -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+    <!-- SCHLICHTE SUB-NAVIGATION FOR 7 CONTAINERS -->
+    <nav id="subnav-container" class="sticky top-20 z-40 bg-slate-50/90 backdrop-blur py-1">
+        <div
+                class="flex flex-wrap items-center justify-center gap-1.5 p-2 bg-white rounded-xl shadow-sm border border-slate-200 text-xs font-medium text-slate-600">
+            <a href="#anfang" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Der Anfang
+            </a>
+            <a href="#vertrieb" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="trending-up" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Vertrieb
+            </a>
+            <a href="#fuehrung" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="users" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Führung
+            </a>
+            <a href="#wendepunkt" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="quote" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Wendepunkt
+            </a>
+            <a href="#mehrwert" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Mehrwert
+            </a>
+            <a href="#transylvanien" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Heute
+            </a>
+            <!-- HERVORGEHOBENER PUNKT (OHNE RANDE / OHNE ROTE SCHRIFT) -->
+            <a href="#auf-einen-blick"
+               class="px-3 py-1 rounded-lg bg-brand-500 text-white font-semibold hover:bg-slate-800 transition-all flex items-center gap-1.5 shadow-sm">
+                <i data-lucide="user-check" class="w-3.5 h-3.5 text-slate-300"></i>&nbsp;Auf einen Blick
+            </a>
+        </div>
+    </nav>
+
+    <!-- CONTAINER 1: INTRO SECTION -->
+    <section id="anfang" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+        <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Der Anfang</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Ich wollte mal Krankenschwester werden.</h2>
+        <div class="text-slate-600 space-y-4 leading-relaxed">
+            <p>
+                Nicht, weil mich das sonderlich interessiert hätte. Es war mehr so, dass das damals alle werden wollten und ich dachte, das wäre ja auch ganz gut bezahlt. Also könnte ich das doch auch machen.
+            </p>
+            <p class="font-medium text-slate-800 italic border-l-4 border-brand-500 pl-4 py-1 bg-slate-50 rounded-r-lg">
+                Zu meinem Glück wurde ich nicht genommen. Ernsthaft. Ich würde das vielleicht heute noch machen.
+            </p>
+            <p>
+                Stattdessen habe ich eine vierjährige Ausbildung zur staatlich anerkannten Familienpflegerin gemacht. Was mir noch weniger gut gefallen hat. Nach zehn Jahren habe ich den Beruf hingeworfen. Ohne etwas Neues zu haben.
+            </p>
+            <p>
+                Ich wusste nur: Wenn ich vorher etwas Neues suche, bleibe ich am Ende doch wieder da. Also musste ich mich zu einer Veränderung zwingen. <strong>Hat funktioniert.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- STATIONEN GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- CONTAINER 2: VERTRIEB & COACHING -->
+        <section id="vertrieb" class="scroll-mt-36 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center font-bold">
+                    <i data-lucide="trending-up" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-serif font-bold text-slate-900">Von der Familienpflegerin zur Autoverkäuferin</h3>
+                <div class="text-slate-600 text-sm space-y-3 leading-relaxed">
+                    <p>
+                        Ich wurde zertifizierte Autoverkäuferin. Und war die Zweitbeste in unserem Haus. Damit hatte ich etwas gefunden, das mir wirklich lag: <strong>Vertrieb.</strong>
+                    </p>
+                    <p>
+                        Menschen ansprechen. Zuhören. Herausfinden, was sie wollen. Sie begeistern. Und ihnen etwas verkaufen, das zu ihnen passt und das sie freut.
+                    </p>
+                    <p>
+                        Danach wurde ich Mediaberaterin für Radio, TV und Print. Wieder Vertrieb. Nun mit etwas, was nicht mal greifbar ist. Werbung. Airtime. Radio war cool. Print schon damals unsäglich. Und ich blieb im Vertrieb. Insgesamt inzwischen rund 30 Jahre.
+                    </p>
+                    <p>
+                        Nebenbei habe ich immer wieder Ausbildungen gemacht, mich weiterqualifiziert, Trainings besucht und Coachings absolviert. So viel gelernt. Erfreulicherweise lerne ich aber echt gern. Irgendwann wurde ich selbst Coach und Trainerin.
+                    </p>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 italic">
+                "Klienten sind erstaunlich oft nur bedingt veränderungsbereit... Eine ziemlich gute Vorbereitung auf meinen heutigen Beruf."
+            </div>
+        </section>
+
+        <!-- CONTAINER 3: FÜHRUNGSKRAFT -->
+        <section id="fuehrung" class="scroll-mt-36 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center font-bold">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-serif font-bold text-slate-900">Und dann wurde ich Führungskraft</h3>
+                <div class="text-slate-600 text-sm space-y-3 leading-relaxed">
+                    <p>
+                        Zeitweise habe ich ein Team von mehr als 30 Vertrieblern geführt. Das war zu viel. Dazu kamen ein Innendienst und ein Telefonteam. Nochmal 15 Mitarbeiter. Das war erst recht zu viel. Aber irgendwie ging es. Und ich habe viel gelernt.
+                    </p>
+                    <p>
+                        Zum Beispiel, wie einsam man als Führungskraft sein kann. Wie plötzlich alle deine Witze wahnsinnig lustig sind.
+                    </p>
+                    <p>
+                        Mehrere Jahre habe ich anschließend für eine Unternehmensberatung gearbeitet und Beratungsaufträge verkauft. Das war tatsächlich sehr viel spannender als erwartet. So viele Themen, die Unternehmen haben können.
+                    </p>
+                    <p class="font-semibold text-slate-800">
+                        Und dann kam Corona.
+                    </p>
+                </div>
+            </div>
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 italic">
+                Praxiserfahrung aus Führung & Beratung, die kein Lehrbuch ersetzen kann.
+            </div>
+        </section>
+
+    </div>
+
+    <!-- CONTAINER 4: WENDEPUNKT & ZITAT BLOCK (TEXT LINKS, BILD RECHTS 300px) -->
+    <section id="wendepunkt" class="scroll-mt-36 bg-gradient-to-br from-slate-900 via-slate-800 to-brand-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-10 text-white pointer-events-none">
+            <i data-lucide="quote" class="w-64 h-64"></i>
+        </div>
+        <!-- BILD-CONTAINER (INLINE-RESPONSIVE FIX) -->
+        <style>
+            .responsive-portrait-wrapper {
+                width: 100%;
+                float: none;
+                margin-bottom: 1.5rem;
+            }
+            /* Ab Desktop-Breite (768px+) wird das Bild fest auf 400px gesetzt und rechts gefloatet */
+            @media (min-width: 768px) {
+                .responsive-portrait-wrapper {
+                    width: 400px !important;
+                    float: right !important;
+                    margin-left: 1.5rem !important;
+                    margin-bottom: 1rem !important;
+                }
+            }
+        </style>
+        <!-- BLOCK-LAYOUT UM FLOAT ZU ERZWINGEN -->
+        <div class="relative z-10 block">
+            <div class="responsive-portrait-wrapper">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-brand-300 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                    <img src="images/ueber-mich.jpg" alt="Sandra Kohlweg Portrait"
+                         class="relative rounded-2xl object-cover w-full h-auto shadow-2xl border border-white/10">
+                </div>
+            </div>
+            <!-- TEXT CONTENT (FLIESST LINKS VORBEI) -->
+            <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-brand-200 backdrop-blur-md uppercase tracking-wider mb-4">Der Wendepunkt</span>
+            <h3 class="text-2xl sm:text-3xl font-serif font-bold mb-4">„Ich würde alles exakt noch einmal so machen.“</h3>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                Plötzlich durfte keiner mehr vor die Tür. Und mein bester Freund Peter starb. Seine letzte Nachricht an mich war:
+            </p>
+            <blockquote class="text-lg sm:text-xl font-serif italic text-brand-200 border-l-2 border-brand-400 pl-4 py-1 mb-4">
+                „Ich hatte ein so schönes Leben. Ich würde alles exakt noch einmal so machen.“
+            </blockquote>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                Und ich habe mich gefragt, ob ich das auch sagen könnte. <strong>Nope. Konnte ich nicht.</strong>
+            </p>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                Ich wollte nicht in Nürnberg leben, wo ich damals gerade war. Und ich wollte einen anderen Job. Dann fragte mich jemand, ob ich nicht Headhunterin werden möchte. Wollte ich nicht. Ich wollte nicht schon wieder etwas Neues anfangen. Aber ich hatte ohnehin nichts zu tun. Corona hatte ja alles auf Ende gestellt.
+            </p>
+            <p class="text-white font-semibold text-base sm:text-lg pt-2">
+                Also habe ich es versucht. Und festgestellt: Ich kann das sogar ziemlich gut.
+            </p>
+            <!-- CLEARFIX HÄLT DEN CONTAINER ZUSAMMEN -->
+            <div style="clear: both;"></div>
+        </div>
+    </section>
+
+    <!-- CONTAINER 5: WARUM MIR DIE UMWEGE HELFEN -->
+    <section id="mehrwert" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Mein Mehrwert</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Warum mir all die Umwege heute helfen</h2>
+            <p class="text-slate-600 text-sm">
+                Beim Headhunting geht es nicht darum, einen Lebenslauf auf eine Stellenbeschreibung zu legen und Wörter zu vergleichen. Es geht um echte Passung.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                <div class="text-brand-600 font-bold flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    Ehrlichkeit & Direktheit
+                </div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    Kein Schönreden, sondern klare Worte und Transparenz auf beiden Seiten des Tischs.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                <div class="text-brand-600 font-bold flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    Branchenvielfalt
+                </div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    Ich habe unterschiedlichste Branchen von innen kennengelernt – das schafft tiefes Verständnis für Unternehmenskulturen.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                <div class="text-brand-600 font-bold flex items-center gap-2">
+                    <i data-lucide="award" class="w-5 h-5"></i>
+                    Führung & Vertrieb
+                </div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    Dass ich selbst Teams geführt habe und Vertrieb durch und durch kenne, macht die Einschätzung von Kandidaten präzise.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+                <div class="text-brand-600 font-bold flex items-center gap-2">
+                    <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                    Coaching-Erfahrung
+                </div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    Jahrelange Begleitung von Menschen bei Veränderungen hilft mir zu verstehen, was Wechselwillige wirklich bewegt.
+                </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 space-y-2 lg:col-span-2">
+                <div class="text-brand-600 font-bold flex items-center gap-2">
+                    <i data-lucide="compass" class="w-5 h-5"></i>
+                    Faszination für Menschen
+                </div>
+                <p class="text-slate-600 text-xs leading-relaxed">
+                    Ich möchte wissen, warum jemand bleibt oder wechselt. Was jemand braucht, um hervorragend zu arbeiten – und warum man in einem Unternehmen aufblüht und im nächsten untergeht.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTAINER 6: STANDORT & GEGENWART -->
+    <section id="transylvanien" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+        <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Heute</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Und dann kam Transylvanien</h2>
+        <div class="text-slate-600 space-y-4 leading-relaxed text-sm sm:text-base">
+            <p>
+                Irgendwann habe ich auch noch den kleinen Schritt Richtung Transylvanien gewagt. Corona hatte Bewerbungsprozesse ohnehin nachhaltig verändert. Gespräche fanden plötzlich selbstverständlich virtuell statt. Und damit war es irgendwann ziemlich gleichgültig, ob ich von Nürnberg, Kärnten oder aus einem kleinen Dorf in Transylvanien telefoniere.
+            </p>
+            <p>
+                Heute liegt mein Lebensmittelpunkt überwiegend hier. Meine Auftraggeber sitzen vor allem in <strong>Österreich und Deutschland</strong>. Mein Schwerpunkt liegt in <strong>Kärnten, der Steiermark und Salzburg</strong>, häufig im industriellen und technischen Umfeld und im Maschinenbau. Aber auch im Sozialbereich habe ich schon erfolgreich besetzt.
+            </p>
+            <p class="font-medium text-slate-800">
+                Ich suche Fach- und Führungskräfte – in Österreich, Deutschland und, wenn es für eine Position sinnvoll ist, auch darüber hinaus.
+            </p>
+        </div>
+
+        <div class="p-6 bg-brand-50/60 rounded-2xl border border-brand-100 text-slate-700 text-sm italic space-y-2">
+            <p>
+                "Peter wäre vermutlich stolz auf mich. Und würde gleichzeitig sagen: ‚Süße, du hast 'nen Knall.‘ Damit hätte er wahrscheinlich recht."
+            </p>
+            <p class="font-semibold text-brand-700 not-italic">
+                Ob ich irgendwann auch sagen kann, dass ich alles exakt noch einmal so machen würde? Keine Ahnung. Aber ich arbeite dran.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTAINER 7: AUF EINEN BLICK (ZWEISPALTI) -->
+    <section id="auf-einen-blick" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-8">
+        <div class="space-y-2 border-b border-slate-100 pb-6">
+            <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Steckbrief</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Sandra Kohlweg auf einen Blick</h2>
+        </div>
+
+        <!-- ZWEISPALTI
+    GES GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-sm">
+
+            <!-- LINKES PALTE -->
+            <div class="space-y-6">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Beruf</span>
+                    <p class="font-medium text-slate-900">Headhunterin, Recruiterin, Unternehmerin</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Unternehmen</span>
+                    <p class="font-medium text-slate-900">Kohlweg Recruiting & Coaching</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Schwerpunkte</span>
+                    <p class="font-medium text-slate-900">Headhunting, Direktansprache sowie Vermittlung von Fach- und Führungskräften</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Branchen</span>
+                    <p class="font-medium text-slate-900">Schwerpunkt Industrie, Maschinenbau und technische Positionen sowie Vertrieb; Erfahrung auch im Sozialbereich und weiteren Branchen</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Positionen</span>
+                    <p class="font-medium text-slate-900">Vom CFO über Projektleitung, Einkauf, Technik und IT bis Vertrieb und Führungskräfte</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Regionen</span>
+                    <p class="font-medium text-slate-900">Österreich und Deutschland, insbesondere Kärnten, Steiermark und Salzburg; bei geeigneten Positionen internationale Suche</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Berufserfahrung</span>
+                    <p class="font-medium text-slate-900">Rund 30 Jahre Vertriebserfahrung, außerdem Führung, Coaching, Training und Unternehmensberatung</p>
+                </div>
+            </div>
+
+            <!-- RECHTE SPALTE -->
+            <div class="space-y-6">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Führungserfahrung</span>
+                    <p class="font-medium text-slate-900">Führung von Vertriebs-, Innen- und Telefonteams mit insgesamt mehr als 40 Mitarbeitenden</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Deutschland-Erfahrung</span>
+                    <p class="font-medium text-slate-900">Fast 25 Jahre beruflich in Deutschland tätig</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Arbeitsweise</span>
+                    <p class="font-medium text-slate-900">Persönliche Direktansprache, vertrauliche Suche, internationales Netzwerk und erfolgsorientierte Vermittlung</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Honorar</span>
+                    <p class="font-medium text-slate-900">20 % des Jahresbruttogehalts bei einer Position, 15 % ab zwei Positionen für dasselbe Unternehmen</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Erfolgshonorar</span>
+                    <p class="font-medium text-slate-900">Rechnung erst bei erfolgreicher Vertragsunterzeichnung; grundsätzlich kein Kandidat = kein Honorar</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Lebensmittelpunkt</span>
+                    <p class="font-medium text-slate-900">Transylvanien, Rumänien</p>
+                </div>
+
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Arbeitsgebiet</span>
+                    <p class="font-medium text-slate-900">Österreich, Deutschland und – wenn sinnvoll – darüber hinaus</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- GLOBAL CTA SECTION -->
+<section class="bg-brand-50 border-t border-brand-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+            <h3 class="text-xl font-bold text-slate-900">Suchen Sie aktuell eine Fach- oder Führungskraft?</h3>
+            <p class="text-slate-600 text-sm mt-1">Lassen Sie uns einfach mal unverbindlich ratschen.</p>
+        </div>
+        <a href="kontakt.html" class="px-6 py-3 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20 shrink-0">
+            Erstgespräch vereinbaren
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
+
+        <!-- SPALTE 1: KOHLWEG LOGO & INFO -->
+        <div class="space-y-3 md:col-span-2">
+            <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
+                <div><img src="images/logo-kohlweg.png" width=30 alt="Kohlweg Logo"></div>
+                KOHLWEG
+            </div>
+            <p class="text-xs leading-relaxed">
+                Headhunting & Direktansprache für Fach- und Führungskräfte in Österreich und Deutschland. Schlanke Strukturen, faire Honorare (15–20 %) und echte Vertriebserfahrung.
+            </p>
+        </div>
+
+        <!-- SPALTE 2: LEISTUNGEN -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Leistungen</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="leistungen.html#direktansprache" class="hover:text-white transition-colors">Direktansprache</a></li>
+                <li><a href="leistungen.html#kaernten" class="hover:text-white transition-colors">Headhunting Kärnten</a></li>
+                <li><a href="leistungen.html#preise" class="hover:text-white transition-colors">Preise & Honorare</a></li>
+            </ul>
+        </div>
+
+        <!-- SPALTE 3: ÜBER MICH & FAQ -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="ueber-mich.html" class="hover:text-white transition-colors">Über mich</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="referenzen.html" class="hover:text-white transition-colors">Referenzen</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></h4>
+        </div>
+
+        <!-- SPALTE 4: RECHTLICHES -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Rechtliches</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="impressum.html" class="hover:text-white transition-colors">Impressum</a></li>
+                <li><a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a></li>
+                <li><a href="agb.html" class="hover:text-white transition-colors">AGB</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+        &copy; 2026 Kohlweg Headhunting. Alle Rechte vorbehalten.
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+</script>
+</body>
+</html>

@@ -1,10 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz – Kohlweg Headhunting & Direktansprache</title>
+    <link href="css/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-$END$
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
+
+<!-- TOP HEADER / BRAND BAR -->
+<header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div>
+                    <img src="images/logo-kohlweg.png" width=100 alt="Sandra Kohlweg Logo - Headhunting & Direktansprache">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">KOHLWEG</span>
+                    <span class="text-[10px] tracking-widest text-slate-500 uppercase font-semibold">Headhunting & Personalberatung</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 text-sm font-medium">
+                <a href="index.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Start</a>
+                <a href="leistungen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Leistungen</a>
+                <a href="ueber-mich.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Über mich</a>
+                <a href="referenzen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Referenzen</a>
+                <a href="faq.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
+                <a href="kontakt.html" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">Kontakt</a>
+            </nav>
+
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+        <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Start</a>
+        <a href="leistungen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Leistungen</a>
+        <a href="ueber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Über mich</a>
+        <a href="referenzen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Referenzen</a>
+        <a href="faq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
+        <a href="kontakt.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Kontakt</a>
+    </div>
+</header>
+
+<!-- BRAND HERO BANNER -->
+<div class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white backdrop-blur-md mb-4 tracking-wider uppercase">Rechtliche Hinweise</span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4">Datenschutzerklärung</h1>
+        <p class="max-w-2xl mx-auto text-brand-100 text-base sm:text-lg leading-relaxed">
+            Informationen über die Verarbeitung Ihrer personenbezogenen Daten
+        </p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT CONTAINER -->
+<main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-10 text-slate-700 leading-relaxed">
+
+        <!-- 1. VERANTWORTLICHE -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">1. Verantwortliche</h2>
+            <p>Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit dieser Website und meiner Geschäftstätigkeit ist:</p>
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 text-sm space-y-1">
+                <p class="font-bold text-slate-900 text-base">Sandra S. Kohlweg</p>
+                <p class="font-medium text-slate-700">Kohlweg Recruiting & Coaching</p>
+                <p>Sat Veșeud, Principala Nr. 114</p>
+                <p>558083 Chirpăr, Sibiu</p>
+                <p>Rumänien</p>
+                <div class="pt-3 text-xs space-y-1 text-slate-600 border-t border-slate-200/60 mt-3">
+                    <p><span class="font-semibold text-slate-800">CUI:</span> 50642880</p>
+                    <p><span class="font-semibold text-slate-800">E-Mail:</span>
+                        <a href="#" data-user="sandra" id="email-link" data-domain="kohlweg.de" class="text-brand-600 hover:underline">E-Mail anzeigen</a>
+                    </p>
+                    <p><span class="font-semibold text-slate-800">Telefon:</span>
+                        <a href="#" data-prefix="+43" data-num="6763346112" id="phone-link" class="text-brand-600 hover:underline">Telefonnummer anzeigen</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. RECHTSGRUNDLAGEN -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">2. Rechtsgrundlagen</h2>
+            <p>Die Verarbeitung personenbezogener Daten erfolgt insbesondere auf Grundlage der Datenschutz-Grundverordnung (EU) 2016/679 (DSGVO) sowie der in Rumänien geltenden ergänzenden Datenschutzvorschriften, insbesondere der Legea nr. 190/2018.</p>
+            <p>Soweit elektronische Kommunikation, Cookies oder vergleichbare Technologien betroffen sind, können zusätzlich die Bestimmungen der rumänischen Legea nr. 506/2004 privind prelucrarea datelor cu caracter personal și protecția vieții private în sectorul comunicațiilor electronice in ihrer jeweils geltenden Fassung Anwendung finden.</p>
+            <p>Personenbezogene Daten sind Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen. Dazu gehören beispielsweise Name, E-Mail-Adresse, Telefonnummer, berufliche Informationen oder IP-Adresse.</p>
+        </section>
+
+        <!-- 3. HOSTING UND SERVER-LOGFILES -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">3. Hosting und Server-Logfiles</h2>
+            <p>Beim Aufruf dieser Website werden technisch notwendige Informationen verarbeitet. Dazu können insbesondere gehören:</p>
+            <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-600">
+                <li>IP-Adresse</li>
+                <li>Datum und Uhrzeit des Zugriffs</li>
+                <li>aufgerufene Seiten und Dateien</li>
+                <li>übertragene Datenmenge</li>
+                <li>Browser und Browserversion</li>
+                <li>Betriebssystem</li>
+                <li>Referrer-URL</li>
+            </ul>
+            <p>Diese Verarbeitung dient der technischen Bereitstellung, Stabilität und Sicherheit der Website.</p>
+            <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse liegt im sicheren und zuverlässigen Betrieb meiner Website.</p>
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+                <strong>[Hinweis / Ergänzung erforderlich]:</strong> Hosting-Anbieter und Speicherdauer der Server-Logfiles eintragen.
+            </div>
+        </section>
+
+        <!-- 4. KONTAKTAUFNAHME -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">4. Kontaktaufnahme</h2>
+            <p>Wenn Sie mich per E-Mail, telefonisch oder über ein Kontaktformular kontaktieren, verarbeite ich die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage und zur weiteren Kommunikation.</p>
+            <p>Dazu können insbesondere Name, Unternehmen, E-Mail-Adresse, Telefonnummer und der Inhalt Ihrer Anfrage gehören.</p>
+            <p>Soweit Ihre Anfrage der Anbahnung oder Durchführung eines Vertrags dient, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.</p>
+            <p>In anderen Fällen erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes Interesse besteht in der Bearbeitung geschäftlicher und sonstiger an mich gerichteter Anfragen.</p>
+        </section>
+
+        <!-- 5. HEADHUNTING -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">5. Headhunting und Direktansprache von Kandidatinnen und Kandidaten</h2>
+            <p>Im Rahmen meiner Tätigkeit als Headhunterin und Recruiterin suche ich aktiv nach geeigneten Fach- und Führungskräften und spreche potenzielle Kandidatinnen und Kandidaten direkt an.</p>
+            <p>Dabei kann ich personenbezogene Daten auch dann verarbeiten, wenn die betreffende Person sich nicht selbst bei mir beworben oder mich zuvor kontaktiert hat.</p>
+            <p>Hierzu können insbesondere gehören:</p>
+            <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-600">
+                <li>Name</li>
+                <li>berufliche Kontaktdaten</li>
+                <li>derzeitiger und frühere Arbeitgeber</li>
+                <li>berufliche Position und Funktion</li>
+                <li>beruflicher Werdegang</li>
+                <li>Ausbildung und Qualifikationen</li>
+                <li>öffentlich zugängliche berufliche Informationen</li>
+                <li>berufliche Interessen und Wechselbereitschaft</li>
+                <li>Gehaltsvorstellungen</li>
+                <li>Informationen aus Gesprächen mit mir</li>
+                <li>Lebenslauf und weitere Unterlagen, sofern diese zur Verfügung gestellt werden</li>
+            </ul>
+            <p>Solche Informationen können insbesondere aus öffentlich zugänglichen beruflichen Quellen, beruflichen Netzwerken, Empfehlungen oder bereits bestehenden beruflichen Kontakten stammen.</p>
+            <p>Die Verarbeitung erfolgt zum Zweck der Identifikation und Kontaktaufnahme mit Personen, die für eine konkrete oder zukünftige berufliche Position geeignet sein könnten.</p>
+            <p>Soweit die Verarbeitung auf Art. 6 Abs. 1 lit. f DSGVO gestützt wird, besteht mein berechtigtes Interesse in der Durchführung meiner Tätigkeit als Personalberaterin und Headhunterin sowie darin, für meine Auftraggeber geeignete Fach- und Führungskräfte zu identifizieren und anzusprechen.</p>
+            <p>Die Interessen und Rechte der betroffenen Personen werden dabei berücksichtigt.</p>
+            <p class="font-medium text-slate-900">Sie können der Verarbeitung Ihrer personenbezogenen Daten auf Grundlage eines berechtigten Interesses nach Maßgabe von Art. 21 DSGVO widersprechen.</p>
+        </section>
+
+        <!-- 6. BEWERBUNGEN -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">6. Bewerbungen und freiwillig übermittelte Kandidatendaten</h2>
+            <p>Wenn Sie mir selbst einen Lebenslauf, Bewerbungsunterlagen oder Informationen über Ihren beruflichen Werdegang übermitteln, verarbeite ich diese Daten zum Zweck der Prüfung und gegebenenfalls Vermittlung geeigneter beruflicher Möglichkeiten.</p>
+            <p>Dazu können insbesondere Kontaktdaten, Lebenslauf, beruflicher Werdegang, Ausbildung und Qualifikationen, Gehaltsvorstellungen, berufliche Wünsche und Interessen, Verfügbarkeit sowie sonstige von Ihnen übermittelte Informationen gehören.</p>
+            <p>Bitte übermitteln Sie nur personenbezogene Informationen, die für den jeweiligen beruflichen Zweck erforderlich sind.</p>
+        </section>
+
+        <!-- 7. WEITERGABE VON KANDIDATENDATEN -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">7. Weitergabe von Kandidatendaten an Unternehmen</h2>
+            <p>Die Identifikation oder Kontaktaufnahme mit einer Kandidatin oder einem Kandidaten bedeutet nicht automatisch, dass personenbezogene Unterlagen an einen Auftraggeber weitergegeben werden.</p>
+            <p>Eine Weitergabe personenbezogener Kandidatendaten an potenzielle Arbeitgeber bzw. Auftraggeber erfolgt nur, wenn hierfür eine entsprechende Rechtsgrundlage besteht.</p>
+            <p>Dabei werden nur diejenigen Daten übermittelt, die für den jeweiligen Vermittlungsprozess erforderlich sind.</p>
+            <p>Meine Auftraggeber befinden sich insbesondere in Österreich und Deutschland. Da es sich hierbei um Mitgliedstaaten der Europäischen Union handelt, gilt auch dort die DSGVO.</p>
+        </section>
+
+        <!-- 8. DATEN VON AUFTRAGGEBERN -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">8. Daten von Auftraggebern und Ansprechpartnern in Unternehmen</h2>
+            <p>Im Rahmen meiner Geschäftstätigkeit verarbeite ich personenbezogene Daten von Ansprechpartnerinnen und Ansprechpartnern bei bestehenden und potenziellen Auftraggebern sowie anderen Unternehmen.</p>
+            <p>Hierzu können insbesondere Name, Unternehmen, Position und Funktion, berufliche E-Mail-Adresse, Telefonnummer und Informationen im Zusammenhang mit einem Suchauftrag oder einer Geschäftsbeziehung gehören.</p>
+            <p>Die Verarbeitung erfolgt insbesondere zur Vertragsanbahnung und Vertragsdurchführung gemäß Art. 6 Abs. 1 lit. b DSGVO sowie aufgrund meines berechtigten Interesses an der Durchführung meiner Geschäftstätigkeit gemäß Art. 6 Abs. 1 lit. f DSGVO.</p>
+        </section>
+
+        <!-- 9. SPEICHERDAUER -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">9. Speicherdauer</h2>
+            <p>Personenbezogene Daten werden grundsätzlich nur so lange gespeichert, wie dies für den jeweiligen Verarbeitungszweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.</p>
+            <p>Bei Kandidatendaten richtet sich die Speicherdauer insbesondere danach, ob ein laufender Vermittlungsprozess besteht, weitere passende berufliche Möglichkeiten in Betracht kommen oder eine weitere Speicherung auf einer anderen rechtlichen Grundlage zulässig ist.</p>
+            <p>Entfällt der Verarbeitungszweck und besteht keine rechtliche Grundlage für eine weitere Speicherung, werden die betreffenden personenbezogenen Daten gelöscht.</p>
+        </section>
+
+        <!-- 10. COOKIES -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">10. Cookies und vergleichbare Technologien</h2>
+            <p>Diese Website kann technisch notwendige Cookies oder vergleichbare Technologien einsetzen, soweit diese für den Betrieb und die grundlegenden Funktionen der Website erforderlich sind.</p>
+            <p>Werden darüber hinaus Cookies oder vergleichbare Technologien beispielsweise für Analyse-, Statistik- oder Marketingzwecke eingesetzt, erfolgt deren Verwendung – soweit gesetzlich erforderlich – erst nach entsprechender Einwilligung.</p>
+            <p>Hierbei sind neben der DSGVO insbesondere die einschlägigen Bestimmungen der rumänischen Legea nr. 506/2004 zu beachten.</p>
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+                <strong>[Hinweis / Ergänzung erforderlich]:</strong> Welche Cookies und Technologien verwendet die fertige Website tatsächlich?
+            </div>
+        </section>
+
+        <!-- 11. ANALYSE- UND MARKETING -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">11. Analyse-, Marketing- und externe Dienste</h2>
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm mb-2">
+                <strong>[Hinweis / Ergänzung erforderlich]:</strong> Dieser Abschnitt wird nach technischer Fertigstellung der Website ergänzt.
+            </div>
+            <p>Sollten auf dieser Website externe Dienste wie beispielsweise Webanalyse, externe Schriftarten, Kartendienste, Videos, Terminbuchungssysteme, Social-Media-Elemente oder andere Drittanbieter-Dienste eingesetzt werden, werden die entsprechenden Informationen zu Anbieter, Zweck, Rechtsgrundlage, Datenübermittlung und Speicherdauer an dieser Stelle ergänzt.</p>
+        </section>
+
+        <!-- 12. ÜBERMITTLUNG AUßERHALB EWR -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">12. Übermittlung von Daten außerhalb des Europäischen Wirtschaftsraums</h2>
+            <p>Soweit personenbezogene Daten an Empfänger außerhalb der Europäischen Union bzw. des Europäischen Wirtschaftsraums übermittelt werden, erfolgt dies nur unter Beachtung der gesetzlichen Voraussetzungen der DSGVO.</p>
+            <p>Dies kann insbesondere relevant werden, wenn technische Dienstleister oder Online-Dienste eingesetzt werden, die personenbezogene Daten außerhalb des Europäischen Wirtschaftsraums verarbeiten.</p>
+            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+                <strong>[Hinweis / Ergänzung erforderlich]:</strong> Nach Fertigstellung der Website anhand der tatsächlich eingesetzten Dienste prüfen.
+            </div>
+        </section>
+
+        <!-- 13. IHRE RECHTE -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">13. Ihre Rechte</h2>
+            <p>Nach Maßgabe der DSGVO haben betroffene Personen insbesondere das Recht auf:</p>
+            <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-600">
+                <li>Auskunft über die verarbeiteten personenbezogenen Daten</li>
+                <li>Berichtigung unrichtiger oder unvollständiger Daten</li>
+                <li>Löschung personenbezogener Daten</li>
+                <li>Einschränkung der Verarbeitung</li>
+                <li>Datenübertragbarkeit, soweit die gesetzlichen Voraussetzungen vorliegen</li>
+                <li>Widerspruch gegen eine Verarbeitung, die auf einem berechtigten Interesse beruht</li>
+                <li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft</li>
+            </ul>
+            <p>Zur Ausübung Ihrer Rechte können Sie sich jederzeit an mich wenden:</p>
+            <p><a href="mailto:sandra@kohlweg.de" class="font-semibold text-brand-600 hover:underline">sandra@kohlweg.de</a></p>
+        </section>
+
+        <!-- 14. BESCHWERDERECHT -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">14. Beschwerderecht</h2>
+            <p>Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die geltenden Datenschutzvorschriften verstößt, haben Sie das Recht, Beschwerde bei einer zuständigen Datenschutzaufsichtsbehörde einzulegen.</p>
+            <p>Die Datenschutzaufsichtsbehörde in Rumänien ist:</p>
+            <p class="font-semibold text-slate-900">Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</p>
+        </section>
+
+        <!-- 15. DATENSICHERHEIT -->
+        <section class="space-y-4">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900 border-b border-slate-100 pb-2">15. Datensicherheit</h2>
+            <p>Ich treffe angemessene technische und organisatorische Maßnahmen, um personenbezogene Daten vor Verlust, unbefugtem Zugriff, Veränderung, Offenlegung und sonstiger unrechtmäßiger Verarbeitung zu schützen.</p>
+        </section>
+
+        <!-- 16. AKTUALISIERUNG -->
+        <section class="space-y-4 pt-4 border-t border-slate-100">
+            <h2 class="text-xl sm:text-2xl font-serif font-bold text-slate-900">16. Aktualisierung dieser Datenschutzerklärung</h2>
+            <p>Diese Datenschutzerklärung kann angepasst werden, wenn sich meine Datenverarbeitungen, die technische Gestaltung der Website oder die rechtlichen Anforderungen ändern.</p>
+            <p class="text-sm font-semibold text-slate-500">Stand: August 2026</p>
+        </section>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
+
+        <!-- SPALTE 1: KOHLWEG LOGO & INFO -->
+        <div class="space-y-3 md:col-span-2">
+            <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
+                <div><img src="images/logo-kohlweg.png" width=30 alt="Kohlweg Logo"></div>
+                KOHLWEG
+            </div>
+            <p class="text-xs leading-relaxed">
+                Headhunting & Direktansprache für Fach- und Führungskräfte in Österreich und Deutschland. Schlanke Strukturen, faire Honorare (15–20 %) und echte Vertriebserfahrung.
+            </p>
+        </div>
+
+        <!-- SPALTE 2: LEISTUNGEN -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Leistungen</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="leistungen.html#direktansprache" class="hover:text-white transition-colors">Direktansprache</a></li>
+                <li><a href="leistungen.html#kaernten" class="hover:text-white transition-colors">Headhunting Kärnten</a></li>
+                <li><a href="leistungen.html#preise" class="hover:text-white transition-colors">Preise & Honorare</a></li>
+            </ul>
+        </div>
+
+        <!-- SPALTE 3: ÜBER MICH & FAQ -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="ueber-mich.html" class="hover:text-white transition-colors">Über mich</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="referenzen.html" class="hover:text-white transition-colors">Referenzen</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></h4>
+        </div>
+
+        <!-- SPALTE 4: RECHTLICHES -->
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Rechtliches</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="impressum.html" class="hover:text-white transition-colors">Impressum</a></li>
+                <li><a href="datenschutz.html" class="hover:text-white transition-colors">Datenschutz</a></li>
+                <li><a href="agb.html" class="hover:text-white transition-colors">AGB</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+        &copy; 2026 Kohlweg Headhunting. Alle Rechte vorbehalten.
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+    function toggleMobileMenu() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    document.querySelectorAll('#email-link').forEach(link => {
+        const user = link.dataset.user;
+        const domain = link.dataset.domain;
+        const email = `${user}@${domain}`;
+
+        // Setzt das korrekte mailto: Ziel beim Klick/Hover
+        link.addEventListener('mouseenter', () => {
+            link.href = `mailto:${email}`;
+            if (link.textContent === 'E-Mail anzeigen') {
+                link.textContent = email;
+            }
+        });
+    });
+
+    document.querySelectorAll('#phone-link').forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            const phone = link.dataset.prefix + link.dataset.num;
+            link.href = `tel:${phone}`;
+            link.textContent = phone;
+        });
+    });
+</script>
 </body>
 </html>
