@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohlweg – Headhunting & Direktansprache</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fdf2f4',
+                            100: '#fbe6e8',
+                            200: '#f7cfd3',
+                            300: '#f1aab1',
+                            400: '#e77785',
+                            500: '#d94759',
+                            600: '#b01b31', /* Primary Brand Red */
+                            700: '#8c1124', /* Darker Bordeaux Red */
+                            800: '#761222',
+                            900: '#651321',
+                            950: '#38060e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .active-tab {
+            color: #b01b31;
+            border-bottom: 2px solid #b01b31;
+            font-weight: 600;
+        }
+        .active-subtab {
+            background-color: #b01b31 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(176, 27, 49, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- TOP HEADER / BRAND BAR -->
+    <header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- BRAND LOGO -->
+                <a href="#" onclick="switchMainTab('start'); return false;" class="flex items-center gap-3 group">
+                    <div>
+                        <img src="logo-kohlweg.png" width=100>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">KOHLWEG</span>
+                        <span class="text-[10px] tracking-widest text-slate-500 uppercase font-semibold">Headhunting & Personalberatung</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAVIGATION -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 text-sm font-medium">
+                    <button onclick="switchMainTab('start')" id="nav-start" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Start</button>
+                    <button onclick="switchMainTab('uber-mich')" id="nav-uber-mich" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Über mich</button>
+                    <button onclick="switchMainTab('leistungen')" id="nav-leistungen" class="px-3 py-2 active-tab transition-colors">Leistungen</button>
+                    <button onclick="switchMainTab('referenzen')" id="nav-referenzen" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Referenzen</button>
+                    <button onclick="switchMainTab('dokumente')" id="nav-dokumente" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Dokumente & Zertifikate</button>
+                    <button onclick="switchMainTab('kontakt')" id="nav-kontakt" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">Kontakt</button>
+                </nav>
+
+                <!-- MOBILE MENU BUTTON -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE NAVIGATION MENU -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+            <button onclick="switchMainTab('start')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Start</button>
+            <button onclick="switchMainTab('uber-mich')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Über mich</button>
+            <button onclick="switchMainTab('leistungen')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">Leistungen</button>
+            <button onclick="switchMainTab('referenzen')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Referenzen</button>
+            <button onclick="switchMainTab('dokumente')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Dokumente & Zertifikate</button>
+            <button onclick="switchMainTab('kontakt')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Kontakt</button>
+        </div>
+    </header>
+
+    <!-- BRAND HERO BANNER -->
+    <div id="hero-banner" class="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <span class="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-white backdrop-blur-md mb-4 tracking-wider uppercase">Personalberatung mit Haltung & Vertriebsgen</span>
+            <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4">Leistungen</h1>
+            <p id="hero-subtitle" class="max-w-2xl mx-auto text-brand-100 text-base sm:text-lg leading-relaxed">
+                Dies ist Ihre Leistungsübersicht. Wählen Sie ein Fachgebiet oder erkunden Sie das gesamte Portfolio für maßgeschneidertes Headhunting in Österreich & Deutschland.
+            </p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- SUB-NAVIGATION BAR FOR LEISTUNGEN -->
+        <div id="subnav-container" class="mb-10">
+            <div class="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-slate-200/70 backdrop-blur rounded-2xl max-w-3xl mx-auto border border-slate-300/50">
+                <button onclick="showServiceTab('hub')" id="subnav-hub" class="active-subtab flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                    <i data-lucide="grid" class="w-4 h-4"></i> Alle Leistungen
+                </button>
+                <button onclick="showServiceTab('direktansprache')" id="subnav-direktansprache" class="bg-transparent text-slate-700 hover:text-brand-600 flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                    <i data-lucide="user-search" class="w-4 h-4"></i> Direktansprache
+                </button>
+                <button onclick="showServiceTab('kaernten')" id="subnav-kaernten" class="bg-transparent text-slate-700 hover:text-brand-600 flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Kärnten-Fokus
+                </button>
+                <button onclick="showServiceTab('preise')" id="subnav-preise" class="bg-transparent text-slate-700 hover:text-brand-600 flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2">
+                    <i data-lucide="calculator" class="w-4 h-4"></i> Kosten & Honorar
+                </button>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: LEISTUNGEN OVERVIEW HUB (ROUTER) -->
+        <!-- ========================================== -->
+        <div id="sec-hub" class="space-y-12 transition-all duration-300">
+            
+            <!-- 3 MAIN SERVICE CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- CARD 1: HEADHUNTING & DIREKTANSPRACHE -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-brand-200 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="target" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">Headhunting & Direktansprache</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Die Richtigen suchen nicht aktiv – sie haben bereits einen Job. Ich warte nicht ab, sondern identifiziere und spreche passende Fach- und Führungskräfte diskret an.
+                        </p>
+                    </div>
+                    <button onclick="showServiceTab('direktansprache')" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-slate-100 text-slate-800 font-semibold text-sm hover:bg-brand-600 hover:text-white transition-all">
+                        Details zur Direktansprache <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- CARD 2: HEADHUNTING IN KÄRNTEN -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-brand-200 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="compass" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">Headhunting in Kärnten</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Vom einen Tal ins nächste wechselt kaum ein Kärntner. Ich nutze mein 25-jähriges Deutschland-Netzwerk, um wechselbereite Topleute für Kärnten zu gewinnen.
+                        </p>
+                    </div>
+                    <button onclick="showServiceTab('kaernten')" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-slate-100 text-slate-800 font-semibold text-sm hover:bg-brand-600 hover:text-white transition-all">
+                        Kärnten-Strategie ansehen <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- CARD 3: KOSTEN & HONORAR -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:border-brand-200 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300 shadow-sm">
+                            <i data-lucide="coins" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">Kosten & Honorar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Klar, transparent und erst bei Erfolg. 15 % bis 20 % Honorar ohne versteckte Nebenkosten oder aufgeblähte Wasserkopf-Aufschläge.
+                        </p>
+                    </div>
+                    <button onclick="showServiceTab('preise')" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-slate-100 text-slate-800 font-semibold text-sm hover:bg-brand-600 hover:text-white transition-all">
+                        Preisstruktur prüfen <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- KEY USPs / WHY ME SECTION -->
+            <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-3xl mb-10">
+                    <span class="text-brand-400 font-semibold text-xs uppercase tracking-widest">Vertriebsgen trifft Menschenkenntnis</span>
+                    <h2 class="text-2xl sm:text-3xl font-serif font-bold mt-2 mb-4">Warum Unternehmen mich anrufen</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Unternehmen rufen mich normalerweise nicht an, weil gerade alles wunderbar läuft. Sie rufen mich an, weil sie jemanden ersetzen möchten, der es noch nicht wissen darf – oder weil die richtige Fachkraft am Markt nicht einfach herumsteht.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-800">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/10 rounded-xl text-brand-400 shrink-0">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Vertriebserfahrung</h4>
+                            <p class="text-slate-400 text-xs mt-1 leading-normal">Fast 30 Jahre Praxis im Identifizieren & Überzeugen der richtigen Kontakte.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/10 rounded-xl text-brand-400 shrink-0">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Diskretion</h4>
+                            <p class="text-slate-400 text-xs mt-1 leading-normal">Schutz Ihrer Marke durch vertrauliche Erstansprache ohne Namensnennung.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/10 rounded-xl text-brand-400 shrink-0">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">D-A-CH Netzwerk</h4>
+                            <p class="text-slate-400 text-xs mt-1 leading-normal">Direkter Marktzugang in Österreich und ganz Deutschland.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2.1: HEADHUNTING & DIREKTANSPRACHE -->
+        <!-- ========================================== -->
+        <div id="sec-direktansprache" class="hidden space-y-12">
+            
+            <!-- INTRO BOX WITH HIGHLIGHT QUOTE -->
+            <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-md">
+                <div class="flex flex-col lg:flex-row gap-8 items-start justify-between">
+                    <div class="lg:w-2/3 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold">
+                            <i data-lucide="search" class="w-3.5 h-3.5"></i> Direktansprache
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Headhunting und Direktansprache für Unternehmen in Österreich und Deutschland</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            Unternehmen rufen mich normalerweise nicht an, weil gerade alles wunderbar läuft. Okay. Manche tun das, weil sie einfach gern mit mir ratschen, aber die Regel ist es nicht.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            Sie rufen mich an, weil sie jemanden ersetzen möchten, der es noch nicht wissen darf. Und sie rufen mich an, weil es nicht wirklich einfach ist, den richtigen Mitarbeiter zu finden. Ich unterstütze Unternehmen in Österreich und Deutschland bei der Suche und Direktansprache von Fach- und Führungskräften. Ein Schwerpunkt meiner Arbeit liegt in <strong>Kärnten, der Steiermark und Salzburg</strong> und hier im industriellen und technischen Umfeld.
+                        </p>
+                    </div>
+
+                    <!-- QUOTE CARD -->
+                    <div class="lg:w-1/3 bg-gradient-to-br from-brand-600 to-brand-800 text-white p-6 rounded-2xl shadow-lg relative">
+                        <i data-lucide="quote" class="w-10 h-10 text-white/20 absolute top-4 right-4"></i>
+                        <p class="font-serif italic text-base leading-relaxed mb-4">
+                            „Ein Schwerpunkt meiner Arbeit liegt im industriellen und technischen Umfeld in Kärnten, der Steiermark und Salzburg.“
+                        </p>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-brand-200">— Kohlweg Headhunting</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEATURE BLOCK: WHAT HUMAN ARE YOU LOOKING FOR? -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center">
+                        <i data-lucide="users" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Was für einen Menschen sucht ihr eigentlich?</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Nachdem ich mir angehört habe, was gesucht wird, ist eine meiner wichtigsten Fragen immer: <strong>Was sollte das für ein Mensch sein, der zu euch passt? Wie seid ihr? Welche Herausforderungen bringt ihr mit?</strong>
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Dabei geht es nicht nur um Ausbildung, Berufserfahrung oder die richtigen Begriffe im Lebenslauf. Gerade bei Fachkräften und Führungskräften muss auch der Mensch zum Unternehmen, zur Aufgabe und zu den Menschen passen, mit denen er später arbeitet.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Die Richtigen suchen nicht</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Hier hilft mir, dass ich aus dem Vertrieb komme. Ich musste mein ganzes Leben die richtigen Firmen identifizieren. Herausfinden, wer das Produkt braucht, warum er unseres vorziehen sollte, wo die Vorteile für ihn liegen und es dann proaktiv anbieten. Nun ist es nicht anders.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Sehr, sehr selten sind die passenden Mitarbeiter gerade selbst auf der Suche. Der richtig gut geeignete Kandidat ist meist bei einem anderen Unternehmen, dort sehr erfolgreich, aber vielleicht/hoffentlich doch ein klein wenig unzufrieden oder zumindest offen.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DEEP DIVE: DIFFERENCE BETWEEN AD & HEADHUNTING -->
+            <div class="bg-slate-100 rounded-2xl p-8 border border-slate-200 space-y-6">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-3">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-600"></i>
+                    Der wesentliche Unterschied zwischen Stellenanzeige und Direktansprache
+                </h3>
+                <p class="text-slate-700 leading-relaxed">
+                    Ich warte nicht darauf, dass sich jemand bewirbt. Ich suche gezielt nach Menschen, die zur Position passen könnten, und spreche sie an. Inzwischen bekomme ich aus meinem Netzwerk extrem oft Empfehlungen. Nachdem erfreulich viele gerne mit mir arbeiten, geben sie diese positiven Erfahrungen auch weiter.
+                </p>
+                <div class="p-4 bg-white rounded-xl border border-slate-200 text-sm font-medium text-slate-800">
+                    💡 <strong>Langfristiges Netzwerk:</strong> Mit vielen High Potentials und Top Kräften bin ich über Jahre in Kontakt, bis wir irgendwann auch die perfekte Stelle finden.
+                </div>
+            </div>
+
+            <!-- REGIONAL MARKET & FREIWILLIGE FEUERWEHR -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+                <h3 class="text-xl font-bold text-slate-900">Headhunting in Kärnten – manchmal ist der Markt einfach leer</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    Selbstverständlich lehne ich auch Projekte ab. Ich nehme nicht jedes Projekt an. Zu manchen Feldern habe ich einfach keinen Zugang. Oder ich weiß, dass der Markt hoffnungslos leer ist. Da finde auch ich nur Leute, wenn das Unternehmen bereit ist, Abstriche zu machen.
+                </p>
+                <p class="text-slate-600 leading-relaxed">
+                    Dadurch, dass ich fast 25 Jahre in Deutschland gearbeitet habe, habe ich auch dort einen sehr guten Marktzugang. Deshalb suche ich für österreichische Unternehmen nicht nur regional. Je nach Position spreche ich Kandidatinnen und Kandidaten in ganz Österreich und Deutschland an.
+                </p>
+                
+                <div class="bg-brand-50 border-l-4 border-brand-600 p-4 rounded-r-xl">
+                    <p class="text-brand-900 text-sm font-medium">
+                        „Und überraschenderweise ist es oft sehr viel einfacher, jemanden aus Deutschland für Österreich zu begeistern, als jemanden in Kärnten von einem Tal ins nächste zu bekommen. Wenn ich schon sehe, dass er bei der Freiwilligen Feuerwehr ist, dann sinkt meine Hoffnung immer rapide.“
+                    </p>
+                </div>
+            </div>
+
+            <!-- WHY HIRE A HEADHUNTER -->
+            <div class="bg-slate-900 text-white p-8 sm:p-10 rounded-2xl space-y-6">
+                <h3 class="text-2xl font-serif font-bold text-white">Warum einen Headhunter beauftragen und nicht einfach selbst suchen?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-white text-base">1. Suche ist eine Vollzeitaufgabe</h4>
+                        <p class="leading-relaxed">Ich suche Vollzeit. Das heißt, ich sitze meist wochenlang an einer einzigen Stelle. Nutze mein Netzwerk, führe unzählige Gespräche, verwerfe wieder und suche weiter. Wer diese Zeit intern hat, braucht mich nicht. Aber meist hat man sie schlichtweg nicht.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-white text-base">2. Absolute Diskretion & Schutz</h4>
+                        <p class="leading-relaxed">Wer mag schon beim Mitbewerber anfragen? Das ist immer gelungenes Tratschmaterial. Als Headhunterin nenne ich den Namen meines Auftraggebers erst bei klaren Wechselsignalen. So schütze ich den Ruf Ihres Unternehmens.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2.2: HEADHUNTING IN KÄRNTEN        -->
+        <!-- ========================================== -->
+        <div id="sec-kaernten" class="hidden space-y-12">
+            
+            <!-- HERO CARD KÄRNTEN -->
+            <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-md space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Kärntent-Fokus
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
+                    Headhunter Kärnten – Mitarbeiter finden, die auch wirklich nach Kärnten wollen
+                </h2>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    Es ist manchmal leichter, jemanden aus Deutschland für einen Job in Kärnten zu begeistern, als einen Kärntner dazu zu bringen, vom einen Tal ins nächste zu wechseln. Kein Witz.
+                </p>
+                <p class="text-slate-600 text-base leading-relaxed">
+                    Menschen sind verwurzelt. Sie haben Familie, Freunde, ein Haus, einen Verein und ein Leben, das nicht einfach mitwechselt, nur weil 40 Kilometer weiter ein interessantes Unternehmen einen guten Job anbietet. Und genau das macht Headhunting in Kärnten manchmal ziemlich speziell. Erstaunlicherweise sind viele Deutsche Staatsbürger sehr offen umzuziehen. Vielleicht, weil man in Deutschland mit Entfernungen nicht so ein Thema hat. Es ist als Land einfach schon mal größer.
+                </p>
+            </div>
+
+            <!-- MARKET PROBLEMS & SOLUTIONS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-5 h-5 text-brand-600"></i>
+                        Warum ist es schwierig, Fachkräfte in Kärnten zu finden?
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Der Kandidatenmarkt ist begrenzt. Bei spezialisierten Fach- und Führungskräften wird er noch kleiner. Gerade in Industrie, Maschinenbau und technischen Bereichen konkurrieren Unternehmen teilweise um dieselben Menschen.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Eine Stellenanzeige erreicht dabei vor allem diejenigen, die gerade aktiv nach einem neuen Job suchen. Die Menschen, die ich suche, tun das häufig nicht. Sie haben ja einen Job. Sie sind dort erfolgreich und würden vermutlich auch die nächsten zehn Jahre dortbleiben. Außer jemand ruft sie an und erzählt ihnen von einer Alternative.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-brand-600"></i>
+                        Wie finde ich Mitarbeiter für Unternehmen in Kärnten?
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Ich warte nicht darauf, dass sich der richtige Kandidat irgendwann bewirbt. Ich suche. Ich identifiziere Unternehmen, in denen Menschen mit der benötigten Erfahrung arbeiten könnten. Ich nutze mein Netzwerk, Empfehlungen und die Direktansprache.
+                    </p>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Dabei hilft mir mein Hintergrund im Vertrieb: Ich habe fast 30 Jahre nichts anderes gemacht, als herauszufinden, wer mein Gegenüber ist, was es braucht und warum mein Angebot interessant sein könnte.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DEUTSCHLAND TO KÄRNTEN ADVANTAGE -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 sm:p-10 rounded-3xl shadow-xl space-y-6">
+                <h3 class="text-2xl font-serif font-bold text-white">Kandidaten aus Deutschland für Kärnten gewinnen</h3>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Dadurch, dass ich fast 25 Jahre in Deutschland gearbeitet habe, beschränkt sich meine Suche nicht auf Kärnten oder Österreich. Ich habe einen sehr guten Zugang zum deutschen Markt und suche bei geeigneten Positionen ganz bewusst auch dort.
+                </p>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Für jemanden aus Hamburg, München, Dresden oder NRW ist Kärnten nicht das nächste Tal. Es ist eine grundsätzliche Entscheidung für einen anderen Lebensmittelpunkt: Berge, Seen, Natur, Lebensqualität, Wohnraum – kombiniert mit Gehalt, Karriere und Familie.
+                </p>
+            </div>
+
+            <!-- 7 INDUSTRIES GRID -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-serif font-bold text-slate-900">Welche Positionen besetze ich in Kärnten?</h3>
+                    <p class="text-slate-600 text-sm mt-2">Mein Schwerpunkt liegt bei Fach- und Führungskräften im industriellen und technischen Umfeld.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="cog" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Maschinenbau & Anlagenbau</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="factory" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Produktion & Fertigung</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Qualitätsmanagement & QS</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="badge-percent" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Technischer Vertrieb</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="truck" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Einkauf & Supply Chain</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Engineering & Technik</span>
+                    </div>
+                    <div class="p-5 bg-white rounded-xl border border-slate-200/80 shadow-sm flex items-center gap-3 sm:col-span-2 lg:col-span-2">
+                        <div class="p-2.5 bg-brand-50 text-brand-600 rounded-lg"><i data-lucide="user-check" class="w-5 h-5"></i></div>
+                        <span class="font-semibold text-slate-800 text-sm">Operative & Technische Führung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRICING SUMMARY CARD (KÄRNTEN) -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm space-y-4">
+                <h3 class="text-xl font-bold text-slate-900">Was kostet Headhunting in Kärnten?</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Bei mir kostet eine erfolgreiche Vermittlung einer einzelnen Position <strong>20 % des Jahresbruttogehalts</strong>. Beauftragt mich ein Unternehmen mit mindestens zwei Positionen, beträgt mein Honorar <strong>15 % des Jahresbruttogehalts</strong>.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <span class="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold">✓ Erst bei Vertragsunterzeichnung fällig</span>
+                    <span class="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold">✓ Kein Erfolg = Kein Honorar</span>
+                    <span class="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold">✓ Keine versteckten Verwaltungskosten</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION 2.3: KOSTEN & HONORAR              -->
+        <!-- ========================================== -->
+        <div id="sec-preise" class="hidden space-y-12">
+            
+            <!-- INTRO -->
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold">
+                    <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Kosten & Honorar
+                </div>
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Was kostet ein Headhunter?</h2>
+                <p class="text-slate-600 text-base">
+                    Bei mir kostet eine erfolgreiche Personalvermittlung in der Regel <strong>15 bis 20 %</strong> des Jahresbruttogehalts des vermittelten Mitarbeiters. Fairness, Transparenz und verlässliche Grundsätze.
+                </p>
+            </div>
+
+            <!-- PRICING CARDS DISPLAY -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
+                <!-- CARD 1: 20% -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-slate-200 shadow-lg relative flex flex-col justify-between">
+                    <div>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-bold uppercase tracking-wider">Einzelauftrag</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-4 mb-2">Eine Position</h3>
+                        <div class="flex items-baseline gap-1 my-4">
+                            <span class="text-5xl font-extrabold text-brand-600">20 %</span>
+                            <span class="text-slate-500 font-medium text-sm">des Jahresbruttogehalts</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Rein erfolgsbasiert</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Fällig bei Vertragsunterzeichnung</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-600"></i> Keine versteckten Such-/Verwaltungskosten</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CARD 2: 15% HIGHLIGHT -->
+                <div class="bg-gradient-to-b from-brand-700 to-brand-900 text-white rounded-3xl p-8 border-2 border-brand-600 shadow-xl relative flex flex-col justify-between">
+                    <div class="absolute -top-3.5 right-6 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        Empfehlung
+                    </div>
+                    <div>
+                        <span class="px-3 py-1 bg-white/10 text-brand-100 rounded-full text-xs font-bold uppercase tracking-wider">Mehrfachauftrag</span>
+                        <h3 class="text-2xl font-bold text-white mt-4 mb-2">Ab zwei Positionen</h3>
+                        <div class="flex items-baseline gap-1 my-4">
+                            <span class="text-5xl font-extrabold text-white">15 %</span>
+                            <span class="text-brand-200 font-medium text-sm">des Jahresbruttogehalts</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-brand-100 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white"></i> Für dasselbe Unternehmen</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white"></i> Rein erfolgsbasiert</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-white"></i> Erst bei Vertragsunterzeichnung</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- HONOAR CALCULATIONS & CAPPED HONORARIUM -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200/80 shadow-sm space-y-6">
+                <h3 class="text-xl font-bold text-slate-900">Wie berechnet sich das Honorar eines Headhunters?</h3>
+                <p class="text-slate-600 leading-relaxed">
+                    Als Jahresbruttogehalt gilt alles, was der Mitarbeiter bei 100 % Zielerreichung innerhalb eines Jahres verdient. Dazu gehören das Grundgehalt sowie vereinbarte variable Gehaltsbestandteile und Zulagen.
+                </p>
+                
+                <div class="p-6 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                    <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="shield-alert" class="w-5 h-5 text-brand-600"></i>
+                        Höchstbetrag (Cap) bei sehr gut bezahlten Positionen
+                    </h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Bei besonders hoch dotierten Positionen vereinbare ich einen Höchstbetrag für mein Honorar. Denn meine Arbeit wird nicht automatisch besser oder aufwendiger, nur weil ein Kandidat besonders viel verdient oder besonders gut verhandelt. Wenn die Provision in Richtung 50.000 Euro oder darüber geht, vereinbaren wir deshalb einen individuellen Höchstbetrag. <em>Leben und leben lassen.</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- PLACEHOLDER NOTE FOR REPLACEMENT / GUARANTEE REGULATION -->
+            <div class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-2xl p-6 text-amber-900 space-y-3">
+                <div class="flex items-center gap-2 font-bold text-amber-800">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                    [ HINWEIS ZUR GARANTIEREGELUNG / REPLACEMENT ]
+                </div>
+                <p class="text-xs sm:text-sm leading-relaxed">
+                    Dieser Abschnitt (Garantieregelung bei Nichtantritt / Nachbesetzung) wird direkt mit Ihrer individuellen Regelung aktualisiert, sobald Ihre finale Fassung freigegeben ist.
+                </p>
+            </div>
+
+            <!-- WHY LOW COST STRUCTURE (TRANSYLVANIA) -->
+            <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 space-y-6">
+                <h3 class="text-2xl font-serif font-bold">Warum kann ich Headhunting für 15 bis 20 % anbieten?</h3>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Ich habe meinen Lebensmittelpunkt inzwischen überwiegend in Transylvanien und führe ein Unternehmen. Ich habe keinen großen Verwaltungsapparat und keine repräsentativen Büros, die meine Kunden mitfinanzieren müssen. Deshalb kann ich zu einem Satz arbeiten, den ich für deutlich marktgerechter halte.
+                </p>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Das bedeutet nicht, dass ich weniger Arbeit in eine Suche investiere. Im Gegenteil: Ich suche selbst. Ich spreche die Kandidaten selbst an. Ich führe die Gespräche selbst. Ich betreue meine Auftraggeber selbst. Fleiß, Ehrgeiz, Können, ein gutes Netzwerk und eine ziemlich ausgeprägte Menschenkenntnis. Mehr bringe ich nicht mit. Und mehr muss aus meiner Sicht auch nicht bezahlt werden.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- OTHER MAIN TABS (START, ÜBER MICH, ETC.)   -->
+        <!-- ========================================== -->
+        
+        <!-- TAB: START -->
+        <div id="sec-main-start" class="hidden space-y-8">
+            <div class="bg-white rounded-3xl p-10 border border-slate-200 text-center max-w-3xl mx-auto space-y-6 shadow-sm">
+                <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase">Willkommen bei Kohlweg</span>
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Gezielte Personalsuche für Schlüsselpositionen</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Spezialisiert auf die unaufgeregte, vertrauliche und erfolgreiche Direktansprache von Fach- und Führungskräften im industriellen & technischen Umfeld.
+                </p>
+                <div class="pt-4">
+                    <button onclick="switchMainTab('leistungen')" class="px-6 py-3 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 transition-all shadow-md">
+                        Zu allen Leistungen wechseln
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: ÜBER MICH -->
+        <div id="sec-main-uber-mich" class="hidden space-y-8">
+            <div class="bg-white rounded-3xl p-10 border border-slate-200 max-w-3xl mx-auto space-y-6 shadow-sm">
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Über mich</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Fast 30 Jahre Vertriebserfahrung, davon 25 Jahre in Deutschland. Ich kenne die Mechanismen des Marktes, weiß wie man Entscheider anspricht und habe den Blick für den Menschen hinter dem Lebenslauf.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB: REFERENZEN -->
+        <div id="sec-main-referenzen" class="hidden space-y-8">
+            <div class="bg-white rounded-3xl p-10 border border-slate-200 max-w-3xl mx-auto space-y-6 shadow-sm text-center">
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Referenzen</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Aufgrund der vertraulichen Natur meiner Mandate teile ich detaillierte Referenzprojekte aus Maschinenbau, Produktion und Technik gerne im persönlichen Gespräch.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB: DOKUMENTE -->
+        <div id="sec-main-dokumente" class="hidden space-y-8">
+            <div class="bg-white rounded-3xl p-10 border border-slate-200 max-w-3xl mx-auto space-y-6 shadow-sm text-center">
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Dokumente & Zertifikate</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Hier finden Sie relevante Unterlagen, Nachweise und Rahmenbedingungen zur Zusammenarbeit.
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB: KONTAKT -->
+        <div id="sec-main-kontakt" class="hidden space-y-8">
+            <div class="bg-white rounded-3xl p-10 border border-slate-200 max-w-3xl mx-auto space-y-6 shadow-sm">
+                <h2 class="text-3xl font-serif font-bold text-slate-900 text-center">Lassen Sie uns unverbindlich sprechen</h2>
+                <p class="text-slate-600 text-center">Haben Sie eine vakante Schlüsselposition oder möchten Sie den Markt sondieren?</p>
+                <form onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Ich werde mich in Kürze bei Ihnen melden.');" class="space-y-4 max-w-md mx-auto pt-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Ihr Name</label>
+                        <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-600 focus:outline-none" placeholder="Max Mustermann">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">E-Mail Adresse</label>
+                        <input type="email" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-600 focus:outline-none" placeholder="name@unternehmen.at">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Nachricht</label>
+                        <textarea rows="4" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-600 focus:outline-none" placeholder="Welche Position möchten Sie besetzen?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-md">
+                        Anfrage Absenden
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- GLOBAL CTA SECTION -->
+    <section class="bg-brand-50 border-t border-brand-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <h3 class="text-xl font-bold text-slate-900">Suchen Sie aktuell eine Fach- oder Führungskraft?</h3>
+                <p class="text-slate-600 text-sm mt-1">Lassen Sie uns einfach mal unverbindlich ratschen.</p>
+            </div>
+            <button onclick="switchMainTab('kontakt')" class="px-6 py-3 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20 shrink-0">
+                Erstgespräch vereinbaren
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3 md:col-span-2">
+                <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
+                    <div><img src="logo-kohlweg.png" width=30></div>
+                    KOHLWEG
+                </div>
+                <p class="text-xs leading-relaxed max-w-sm">
+                    Headhunting & Direktansprache für Fach- und Führungskräfte in Österreich und Deutschland. Schlanke Strukturen, faire Honorare (15–20 %) und echte Vertriebserfahrung.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-bold mb-3">Leistungen</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" onclick="showServiceTab('direktansprache'); return false;" class="hover:text-white">Direktansprache</a></li>
+                    <li><a href="#" onclick="showServiceTab('kaernten'); return false;" class="hover:text-white">Headhunting Kärnten</a></li>
+                    <li><a href="#" onclick="showServiceTab('preise'); return false;" class="hover:text-white">Preise & Honorare</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-sm font-bold mb-3">Rechtliches</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white">Impressum</a></li>
+                    <li><a href="#" class="hover:text-white">Datenschutz</a></li>
+                    <li><a href="#" class="hover:text-white">AGB</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2026 Kohlweg Headhunting. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE NAVIGATION SCRIPT -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Switch Main Header Tabs (Start, Über mich, Leistungen, etc.)
+        function switchMainTab(tabId) {
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+
+            // Hide all main sections
+            const sections = ['sec-hub', 'sec-direktansprache', 'sec-kaernten', 'sec-preise', 'sec-main-start', 'sec-main-uber-mich', 'sec-main-referenzen', 'sec-main-dokumente', 'sec-main-kontakt'];
+            sections.forEach(s => {
+                const el = document.getElementById(s);
+                if (el) el.classList.add('hidden');
+            });
+
+            // Reset top nav classes
+            const navButtons = ['start', 'uber-mich', 'leistungen', 'referenzen', 'dokumente', 'kontakt'];
+            navButtons.forEach(btn => {
+                const el = document.getElementById(`nav-${btn}`);
+                if (el && btn !== 'kontakt') {
+                    el.className = 'px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors';
+                }
+            });
+
+            // Update subnav visibility
+            const subnavContainer = document.getElementById('subnav-container');
+
+            if (tabId === 'leistungen') {
+                subnavContainer.style.display = 'block';
+                showServiceTab('hub');
+                document.getElementById('nav-leistungen').className = 'px-3 py-2 active-tab transition-colors';
+            } else {
+                subnavContainer.style.display = 'none';
+                const activeNav = document.getElementById(`nav-${tabId}`);
+                if (activeNav && tabId !== 'kontakt') {
+                    activeNav.className = 'px-3 py-2 active-tab transition-colors';
+                }
+                const targetSec = document.getElementById(`sec-main-${tabId}`);
+                if (targetSec) targetSec.classList.remove('hidden');
+
+                // Update Hero titles for secondary pages
+                const heroTitle = document.getElementById('hero-title');
+                const heroSubtitle = document.getElementById('hero-subtitle');
+                
+                const pageTitles = {
+                    'start': ['Willkommen bei Kohlweg', 'Gezielte Direktansprache für Fach- und Führungskräfte.'],
+                    'uber-mich': ['Über mich', '30 Jahre Vertriebserfahrung & ausgeprägte Menschenkenntnis.'],
+                    'referenzen': ['Referenzen', 'Erfolgreiche Besetzungen im technischen & industriellen Sektor.'],
+                    'dokumente': ['Dokumente & Zertifikate', 'Transparente Informationen & Rechtsgrundlagen.'],
+                    'kontakt': ['Kontakt', 'Lassen Sie uns unverbindlich über Ihre Personalsuche sprechen.']
+                };
+
+                if (pageTitles[tabId]) {
+                    heroTitle.innerText = pageTitles[tabId][0];
+                    heroSubtitle.innerText = pageTitles[tabId][1];
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switch Service Subtabs inside Leistungen Hub
+        function showServiceTab(subTab) {
+            // Hide all sub-sections
+            const subSections = ['hub', 'direktansprache', 'kaernten', 'preise'];
+            subSections.forEach(s => {
+                const el = document.getElementById(`sec-${s}`);
+                if (el) el.classList.add('hidden');
+            });
+
+            // Show selected subsection
+            const targetSec = document.getElementById(`sec-${subTab}`);
+            if (targetSec) targetSec.classList.remove('hidden');
+
+            // Reset subnav styling
+            subSections.forEach(s => {
+                const btn = document.getElementById(`subnav-${s}`);
+                if (btn) {
+                    btn.className = 'bg-transparent text-slate-700 hover:text-brand-600 flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2';
+                }
+            });
+
+            // Set active subnav button
+            const activeBtn = document.getElementById(`subnav-${subTab}`);
+            if (activeBtn) {
+                activeBtn.className = 'active-subtab flex-1 min-w-[140px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2';
+            }
+
+            // Update Hero Banner Copy
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+
+            if (subTab === 'hub') {
+                heroTitle.innerText = 'Leistungen';
+                heroSubtitle.innerText = 'Dies ist Ihre Leistungsübersicht. Wählen Sie ein Fachgebiet oder erkunden Sie das gesamte Portfolio für maßgeschneidertes Headhunting in Österreich & Deutschland.';
+            } else if (subTab === 'direktansprache') {
+                heroTitle.innerText = 'Headhunting & Direktansprache';
+                heroSubtitle.innerText = 'Diskrete Personalsuche in Österreich & Deutschland für das industrielle und technische Umfeld.';
+            } else if (subTab === 'kaernten') {
+                heroTitle.innerText = 'Headhunting in Kärnten';
+                heroSubtitle.innerText = 'Mitarbeiter finden, die auch wirklich nach Kärnten wollen – regional & aus Deutschland.';
+            } else if (subTab === 'preise') {
+                heroTitle.innerText = 'Kosten & Honorar';
+                heroSubtitle.innerText = 'Transparent, fair & erfolgsbasiert. Keine versteckten Nebenkosten – 15 % bis 20 % Provision erst bei Erfolg.';
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
