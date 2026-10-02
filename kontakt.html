@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt – Kohlweg Headhunting & Direktansprache</title>
+
+    <!-- Favicon / Browser Icons -->
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Kontakt – Kohlweg Headhunting & Direktansprache">
+    <meta name="description" content="Kontaktieren Sie Sandra Kohlweg für Ihre Personalsuche. Unverbindliche Beratung zu Headhunting &amp; Direktansprache in Kärnten, Österreich &amp; Deutschland.">    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="language" content="German">
+    <link rel="canonical" href="https://www.kohlweg.de/kontakt.html">
+
+    <!-- Geo Meta Tags (Lokales SEO Kärnten/Österreich) -->
+    <meta name="geo.region" content="AT-2">
+    <meta name="geo.placename" content="Kärnten">
+    <meta name="geo.position" content="46.6247;14.3053">
+    <meta name="ICBM" content="46.6247, 14.3053">
+
+    <!-- Open Graph / Social Media (LinkedIn, WhatsApp, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kohlweg.de/kontakt.html">
+    <meta property="og:title" content="Kontakt – Kohlweg Headhunting & Direktansprache">
+    <meta property="og:description" content="Kontaktieren Sie Sandra Kohlweg für Ihre Personalsuche. Unverbindliche Beratung zu Headhunting &amp; Direktansprache in Kärnten, Österreich &amp; Deutschland.">    <meta property="og:image" content="https://www.kohlweg.de/images/og-share.jpg">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="de_AT">
+
     <link href="css/output.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lokale Einbindung der Schriftarten (Plus Jakarta Sans & Playfair Display) -->
+    <link href="css/fonts.css" rel="stylesheet">
+    <script type="application/javascript" src="js/lucide.min.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
 
@@ -47,8 +73,7 @@
         <a href="leistungen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Leistungen</a>
         <a href="ueber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Über mich</a>
         <a href="referenzen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Referenzen</a>
-        <a href="faq.html"
-           class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
+        <a href="faq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
         <a href="kontakt.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Kontakt</a>
     </div>
 </header>
@@ -254,6 +279,35 @@
             link.textContent = phone;
         });
     });
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EmploymentAgency",
+        "name": "Kohlweg Headhunting & Personalberatung",
+        "url": "https://www.kohlweg.de/",
+        "description": "Headhunting und Direktansprache für Fach- und Führungskräfte im industriellen und technischen Umfeld in Kärnten, Österreich und Deutschland.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Kärnten",
+            "addressCountry": "AT"
+        },
+        "areaServed": [
+            {
+                "@type": "State",
+                "name": "Kärnten"
+            },
+            {
+                "@type": "Country",
+                "name": "Österreich"
+            },
+            {
+                "@type": "Country",
+                "name": "Deutschland"
+            }
+        ],
+        "priceRange": "15% - 20%"
+    }
 </script>
 </body>
 </html>
