@@ -1,8 +1,14 @@
-.idea/
-work/
-node_modules/
-images/favi/
-/images/favi/
+# IDE / Tools
 /.idea/
-/work/
 /node_modules/
+
+# Entwürfe & Archiv
+/work/
+
+# Nicht verwendete Dateien
+/css/style.css
+/images/favi/
+/images/logo-kohlweg-sig.png
+/images/logo-schrift-kohlweg.png
+/images/sandra-kohlweg.png
+/images/ueber-mich.jpg
