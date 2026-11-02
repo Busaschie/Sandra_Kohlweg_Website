@@ -1,0 +1,64 @@
+# ------------------------------------------------------------
+# Sandra Kohlweg – .htaccess
+# Aktuell: littlewebman.de/sandra/  (Datei in /sandra/ ablegen)
+# Später:  kohlweg.de  -> markierte Zeilen umstellen
+# ------------------------------------------------------------
+
+# Eigene Fehlerseite
+ErrorDocument 404 /sandra/404.html
+# kohlweg.de: ErrorDocument 404 /404.html
+
+# Keine Verzeichnisauflistung
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # HTTP -> HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # kohlweg.de: auf www umleiten (passend zum canonical https://www.kohlweg.de/)
+  # RewriteCond %{HTTP_HOST} ^kohlweg\.de$ [NC]
+  # RewriteRule ^ https://www.kohlweg.de%{REQUEST_URI} [L,R=301]
+
+  # Versteckte Dateien (.git, .env, …) sperren
+  RewriteRule (^|/)\.(?!well-known/) - [F]
+</IfModule>
+
+# Staging nicht indexieren – auf kohlweg.de ENTFERNEN
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# Sicherheits-Header
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+  # kohlweg.de, wenn HTTPS stabil läuft:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Komprimierung
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Browser-Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
