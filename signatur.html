@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <style>
+        :root {
+            color-scheme: light dark;
+            supported-color-schemes: light dark;
+        }
+
+        /* Dark Mode Anpassungen für unterstützte E-Mail-Clients */
+        @media (prefers-color-scheme: dark) {
+            .sig-card {
+                background-color: #181818 !important;
+                border-color: #333333 !important;
+            }
+            .text-heading {
+                color: #ffffff !important;
+            }
+            .text-sub {
+                color: #d1d5db !important;
+            }
+            .text-muted {
+                color: #9ca3af !important;
+            }
+            .link-accent {
+                color: #38bdf8 !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif;">
+
+<!-- Signatur-Behälter -->
+<table class="sig-card" role="presentation" cellspacing="0" cellpadding="0" border="0" style="width: 100%; max-width: 580px; border-top: 3px solid #9E1B2A; padding: 16px 12px; background-color: #ffffff;">
+    <tr>
+        <!-- Linke Spalte: Transparente Grafik / Maskottchen -->
+        <td valign="center" align="center" style="padding-right: 20px; width: 110px;">
+            <!-- PFAD ZUM BILD HIER ANPASSEN -->
+            <img src="https://littlewebman.de/sandra/images/logo-kohlweg-sig.png" alt="Sandra S. Kohlweg Logo" width="100" style="display: block; width: 100px; max-width: 100px; height: auto; border: 0;">
+        </td>
+
+        <!-- Vertikale Trennlinie -->
+        <td valign="middle" style="padding-right: 5px; border-right: 1px solid #e5e7eb;">&nbsp;</td>
+
+        <!-- Rechte Spalte: Kontaktdaten & Profil -->
+        <td valign="top" style="padding-left: 5px;">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+
+                <!-- Name -->
+                <tr>
+                    <td class="text-heading" style="font-size: 18px; font-weight: 700; color: #111827; letter-spacing: -0.2px; padding-bottom: 2px;">
+                        Sandra S. Kohlweg
+                    </td>
+                </tr>
+
+                <!-- Titel / Expertise -->
+                <tr>
+                    <td style="font-size: 11px; font-weight: 700; color: #9E1B2A; letter-spacing: 0.8px; text-transform: uppercase; padding-bottom: 10px;">
+                        Executive Search &bull; Personalbeschaffung &bull; Direktsearch
+                    </td>
+                </tr>
+
+                <!-- Kontaktzeilen -->
+                <tr>
+                    <td style="font-size: 13px; line-height: 1.6; padding-bottom: 8px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                                <td class="text-muted" style="color: #6b7280; font-size: 12px; font-weight: bold; padding-right: 8px;">E-Mail:</td>
+                                <td>
+                                    <a class="link-accent" href="mailto:sandra@kohlweg.de" style="color: #0284c7; text-decoration: none; font-weight: 600;">sandra@kohlweg.de</a>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td class="text-muted" style="color: #6b7280; font-size: 12px; font-weight: bold; padding-right: 8px;">Mobil:</td>
+                            <td>
+                                <a class="link-accent" href="https://www.kohlweg.de" target="_blank" style="color: #0284c7; text-decoration: none; font-weight: 600;">www.kohlweg.de</a>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted" style="color: #6b7280; font-size: 12px; font-weight: bold; padding-right: 8px;">Mobil:</td>
+                                <td>
+                                    <a class="link-accent" href="tel:+436763346112" style="color: #0284c7; text-decoration: none; font-weight: 600;">+43 676 334 6112</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Standorte / Adresse -->
+                <tr>
+                    <td class="text-muted" style="font-size: 11px; line-height: 1.4; color: #6b7280; border-top: 1px dashed #e5e7eb; padding-top: 8px;">
+                        <strong class="text-sub" style="color: #374151;">RO:</strong> Sat Veșeud Principala Nr. 114 &bull; 558083 Chirpăr, Sibiu
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

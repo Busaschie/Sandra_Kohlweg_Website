@@ -114,7 +114,7 @@
             <a href="#mehrwert" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
                 <i data-lucide="check-circle" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Mehrwert
             </a>
-            <a href="#transylvanien" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
+            <a href="#Transsilvanien" class="px-3 py-1 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition-colors flex items-center gap-1.5">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>&nbsp;Heute
             </a>
             <!-- HERVORGEHOBENER PUNKT (OHNE RANDE / OHNE ROTE SCHRIFT) -->
@@ -127,6 +127,30 @@
 
     <!-- CONTAINER 1: INTRO SECTION -->
     <section id="anfang" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+        <!-- BILD-CONTAINER (INLINE-RESPONSIVE FIX) -->
+        <style>
+            .responsive-portrait-2-wrapper {
+                width: 100%;
+                float: none;
+                margin-bottom: 1.5rem;
+            }
+            /* Ab Desktop-Breite (768px+) wird das Bild fest auf 400px gesetzt und rechts gefloatet */
+            @media (min-width: 768px) {
+                .responsive-portrait-2-wrapper {
+                    width: 250px !important;
+                    float: right !important;
+                    margin-left: 1.5rem !important;
+                    margin-bottom: 1rem !important;
+                }
+            }
+        </style>
+        <div class="responsive-portrait-2-wrapper">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-brand-300 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+                <img src="images/kohlweg-sandra.png" alt="Sandra Kohlweg Portrait"
+                     class="relative rounded-2xl object-cover w-full h-auto shadow-2xl border border-white/10">
+            </div>
+        </div>
         <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Der Anfang</span>
         <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Ich wollte mal Krankenschwester werden.</h2>
         <div class="text-slate-600 space-y-4 leading-relaxed">
@@ -322,10 +346,10 @@
     </section>
 
     <!-- CONTAINER 6: STANDORT & GEGENWART -->
-    <section id="transylvanien" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-6">
+    <section id="Transsilvanien" class="scroll-mt-36 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-sm space-y-6">
         <div>
             <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Heute</span>
-            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-2">Und dann kam Transylvanien</h2>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 mt-2">Und dann kam Transsilvanien</h2>
         </div>
 
         <!-- 2-SPALTEN-GRID: Bild links, Text rechts -->
@@ -337,7 +361,7 @@
                     <!-- Glow-Effekt im Hintergrund -->
                     <div class="absolute -inset-2 bg-gradient-to-r from-brand-50 to-brand-300 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                     <!-- Bild-Element -->
-                    <img src="images/berge.png" alt="Sandra Kohlweg Transylvanien"
+                    <img src="images/berge.png" alt="Sandra Kohlweg Transsilvanien"
                          class="relative rounded-2xl object-cover w-full h-auto shadow-2xl border border-white/10">
                 </div>
             </div>
@@ -345,7 +369,7 @@
             <!-- RECHTES ELEMENT: Text (nimmt 7 von 12 Spalten ein) -->
             <div class="lg:col-span-7 text-slate-600 space-y-4 leading-relaxed text-sm sm:text-base">
                 <p>
-                    Irgendwann habe ich auch noch den kleinen Schritt Richtung Transylvanien gewagt. Corona hatte Bewerbungsprozesse ohnehin nachhaltig verändert. Gespräche fanden plötzlich selbstverständlich virtuell statt. Und damit war es irgendwann ziemlich gleichgültig, ob ich von Nürnberg, Kärnten oder aus einem kleinen Dorf in Transylvanien telefoniere.
+                    Irgendwann habe ich auch noch den kleinen Schritt Richtung Transsilvanien gewagt. Corona hatte Bewerbungsprozesse ohnehin nachhaltig verändert. Gespräche fanden plötzlich selbstverständlich virtuell statt. Und damit war es irgendwann ziemlich gleichgültig, ob ich von Nürnberg, Kärnten oder aus einem kleinen Dorf in Transsilvanien telefoniere.
                 </p>
                 <p>
                     Heute liegt mein Lebensmittelpunkt überwiegend hier. Meine Auftraggeber sitzen vor allem in <strong>Österreich und Deutschland</strong>. Mein Schwerpunkt liegt in <strong>Kärnten, der Steiermark und Salzburg</strong>, häufig im industriellen und technischen Umfeld und im Maschinenbau. Aber auch im Sozialbereich habe ich schon erfolgreich besetzt.
@@ -445,7 +469,7 @@
 
                 <div class="border-b border-slate-100 pb-3">
                     <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Lebensmittelpunkt</span>
-                    <p class="font-medium text-slate-900">Transylvanien, Rumänien</p>
+                    <p class="font-medium text-slate-900">Transsilvanien, Rumänien</p>
                 </div>
 
                 <div class="border-b border-slate-100 pb-3">
