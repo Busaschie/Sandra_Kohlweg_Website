@@ -62,8 +62,8 @@ work/           Entwürfe & Archiv – nicht im Repo (.gitignore)
 Voraussetzung für den CSS-Build: Node.js. Die Seite selbst braucht keinen Build-Schritt außer dem CSS.
 
 ```bash
-git clone <repo-url>
-cd html
+git clone https://github.com/Busaschie/Sandra_Kohlweg_Website.git
+cd Sandra_Kohlweg_Website
 
 # CSS einmalig bauen
 npx @tailwindcss/cli -i css/main.css -o css/output.css --minify
