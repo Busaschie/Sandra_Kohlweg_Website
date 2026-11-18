@@ -1,12 +1,9 @@
 # ------------------------------------------------------------
-# Sandra Kohlweg – .htaccess
-# Aktuell: littlewebman.de/sandra/  (Datei in /sandra/ ablegen)
-# Später:  kohlweg.de  -> markierte Zeilen umstellen
+# Sandra Kohlweg – .htaccess (Live: https://www.kohlweg.de/)
 # ------------------------------------------------------------
 
 # Eigene Fehlerseite
-ErrorDocument 404 /sandra/404.html
-# kohlweg.de: ErrorDocument 404 /404.html
+ErrorDocument 404 /404.html
 
 # Keine Verzeichnisauflistung
 Options -Indexes
@@ -14,22 +11,20 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Ohne www -> https://www.kohlweg.de (direkt, ohne Zwischenschritt)
+  RewriteCond %{HTTP_HOST} ^kohlweg\.de$ [NC]
+  RewriteRule ^ https://www.kohlweg.de%{REQUEST_URI} [L,R=301]
+
   # HTTP -> HTTPS
   RewriteCond %{HTTPS} off
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # kohlweg.de: auf www umleiten (passend zum canonical https://www.kohlweg.de/)
-  # RewriteCond %{HTTP_HOST} ^kohlweg\.de$ [NC]
-  # RewriteRule ^ https://www.kohlweg.de%{REQUEST_URI} [L,R=301]
+  # CRM-Vorlagen nicht über den Browser ausliefern (403)
+  RewriteRule ^jobs/_vorlagen(/|$) - [F,L]
 
   # Versteckte Dateien (.git, .env, …) sperren
   RewriteRule (^|/)\.(?!well-known/) - [F]
-</IfModule>
-
-# Staging nicht indexieren – auf kohlweg.de ENTFERNEN
-<IfModule mod_headers.c>
-  Header always set X-Robots-Tag "noindex, nofollow"
 </IfModule>
 
 # Sicherheits-Header
@@ -38,8 +33,8 @@ Options -Indexes
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), camera=(), microphone=()"
-  # kohlweg.de, wenn HTTPS stabil läuft:
-  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # HSTS (Browser beachten den Header nur über HTTPS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
 # Komprimierung

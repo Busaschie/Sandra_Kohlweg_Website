@@ -1,0 +1,15 @@
+# robots.txt – www.kohlweg.de
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Keine Inhaltsseiten
+Disallow: /404.html
+
+Sitemap: https://www.kohlweg.de/sitemap.xml
+Sitemap: https://www.kohlweg.de/jobs/sitemap-jobs.xml

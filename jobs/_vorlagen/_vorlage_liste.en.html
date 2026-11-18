@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CRM: title, description, canonical, hreflang, JSON-LD -->
+    {{JOB_HEAD}}
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="icon" type="image/x-icon" href="/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+
+    <link href="/css/output.css" rel="stylesheet">
+    <link href="/css/fonts.css" rel="stylesheet">
+    <link href="/css/jobs.css" rel="stylesheet">
+    <script src="/js/lucide.min.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col justify-between">
+
+<header class="sticky top-0 z-50 bg-white border-b border-slate-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <a href="/en/index.html" class="flex items-center gap-3 group">
+                <div>
+                    <img src="/images/logo-kohlweg.png" width=100 alt="Kohlweg Headhunting logo">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">Kohlweg Headhunting</span>
+                    <span class="text-[10px] tracking-widest text-slate-500 uppercase font-semibold">Direct Search · Austria & Germany</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-4 text-sm font-medium">
+                <a href="/en/index.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Home</a>
+                <a href="/en/leistungen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">Services</a>
+                <a href="/jobs/en/" class="px-3 py-2 text-slate-600 active-tab hover:text-brand-600 transition-colors" aria-current="page">Jobs</a>
+                <a href="/en/ueber-mich.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">About me</a>
+                <a href="/en/referenzen.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">References</a>
+                <a href="/en/faq.html" class="px-3 py-2 text-slate-600 hover:text-brand-600 transition-colors">FAQ</a>
+                <a href="/en/kontakt.html" class="ml-2 px-4 py-2 rounded-lg bg-brand-600 text-white font-medium hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">Contact</a>
+                <a href="/jobs/" data-lang-switch="de" hreflang="de" lang="de" title="Deutsche Version" class="px-2 py-2 text-xs font-semibold text-slate-500 hover:text-brand-600 transition-colors">DE</a>
+            </nav>
+
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100" aria-label="Open menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+        <a href="/en/index.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Home</a>
+        <a href="/en/leistungen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Services</a>
+        <a href="/jobs/en/" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-brand-600 font-semibold bg-brand-50">Jobs</a>
+        <a href="/en/ueber-mich.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">About me</a>
+        <a href="/en/referenzen.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">References</a>
+        <a href="/en/faq.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">FAQ</a>
+        <a href="/en/kontakt.html" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-brand-600 text-white">Contact</a>
+        <a href="/jobs/" data-lang-switch="de" hreflang="de" lang="de" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">DE</a>
+    </div>
+</header>
+
+<main class="job-shell">
+    <div class="job-search">
+        <div class="job-search-inner">
+            <h1 class="job-sr">Open positions</h1>
+            <form class="job-form" id="job-form" role="search">
+                <div class="job-field">
+                    <i data-lucide="search"></i>
+                    <label for="job-q">What</label>
+                    <input id="job-q" name="q" type="search" placeholder="Job title, keyword, field" autocomplete="off">
+                </div>
+                <div class="job-field">
+                    <i data-lucide="map-pin"></i>
+                    <label for="job-l">Where</label>
+                    <input id="job-l" name="l" type="search" placeholder="City or region" autocomplete="off">
+                </div>
+                <button class="job-submit" type="submit">Find jobs</button>
+            </form>
+            <div class="job-bar">
+                <div class="job-chips" id="job-chips" role="group" aria-label="Filter by field"></div>
+                <span class="job-count" id="job-count" aria-live="polite">{{JOB_COUNT}} open positions</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="job-split">
+        <div class="job-list" id="job-list" aria-label="Job list">
+{{JOB_LIST}}
+            <div class="job-empty" id="job-empty" hidden>
+                <strong>No matching position found</strong>
+                Change your search or write to me directly – I fill many positions without advertising them.
+            </div>
+            <div class="job-empty" id="job-none" hidden>
+                <strong>No advertised positions right now</strong>
+                Many searches are confidential and never published. <a href="/en/kontakt.html">Write to me</a> – it may still be a fit.
+            </div>
+        </div>
+        <div class="job-pane" id="job-pane" aria-live="polite">
+            <p class="job-pane-hint">Select a position on the left.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div class="space-y-3 md:col-span-2">
+            <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
+                <div><img src="/images/logo-kohlweg.png" width=30 alt="Kohlweg Headhunting logo"></div>
+                Kohlweg Headhunting
+            </div>
+            <p class="text-xs leading-relaxed">
+                Headhunting & direct search for specialists and managers in Austria and Germany. Lean structures, fair fees (15–20%) and genuine sales experience.
+            </p>
+        </div>
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Services</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="/en/leistungen.html#direktansprache" class="hover:text-white transition-colors">Direct search</a></li>
+                <li><a href="/en/leistungen.html#kaernten" class="hover:text-white transition-colors">Headhunting in Carinthia</a></li>
+                <li><a href="/en/leistungen.html#preise" class="hover:text-white transition-colors">Fees</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="/jobs/en/" class="hover:text-white transition-colors">Jobs</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="/en/ueber-mich.html" class="hover:text-white transition-colors">About me</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="/en/referenzen.html" class="hover:text-white transition-colors">References</a></h4>
+            <h4 class="text-white text-sm font-bold mb-3"><a href="/en/faq.html" class="hover:text-white transition-colors">FAQ</a></h4>
+        </div>
+        <div>
+            <h4 class="text-white text-sm font-bold mb-3">Legal</h4>
+            <ul class="space-y-2 text-xs">
+                <li><a href="/en/impressum.html" class="hover:text-white transition-colors">Legal notice</a></li>
+                <li><a href="/en/datenschutz.html" class="hover:text-white transition-colors">Privacy policy</a></li>
+                <li><a href="/en/agb.html" class="hover:text-white transition-colors">Terms & conditions</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500">
+        &copy; 2026 Kohlweg Headhunting. All rights reserved.
+    </div>
+</footer>
+
+<script>
+    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+</script>
+<script src="/js/jobs.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

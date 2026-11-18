@@ -4,6 +4,7 @@
 
 # Entwürfe & Archiv
 /work/
+/jobs-1/
 
 # Nicht verwendete Dateien
 /css/style.css
@@ -12,3 +13,12 @@
 /images/logo-schrift-kohlweg.png
 /images/sandra-kohlweg.png
 /images/ueber-mich.jpg
+/images/kohlweg-sandra.png
+/images/sandra.png
+/images/sandra_kohlweg.png
+
+# Jobs: Seiten erzeugt und hochgeladen das CRM (nicht aus WebStorm hochladen)
+/jobs/*
+!/jobs/_vorlagen/
+!/jobs/vergeben.html
+!/jobs/.htaccess

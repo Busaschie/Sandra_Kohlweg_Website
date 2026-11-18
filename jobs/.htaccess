@@ -1,0 +1,2 @@
+# 404 im Jobs-Ordner: Hinweis "Stelle vergeben" statt allgemeiner Fehlerseite
+ErrorDocument 404 /jobs/vergeben.html
