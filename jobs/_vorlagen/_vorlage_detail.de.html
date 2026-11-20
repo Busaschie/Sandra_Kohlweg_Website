@@ -63,27 +63,21 @@
 <main class="job-page">
     <div class="job-page-inner">
         <a class="job-back" href="/jobs/"><i data-lucide="arrow-left"></i>Alle Stellen</a>
-        <div class="job-page-grid">
-            <article class="job-body" id="job-body" data-job-body>
+        <article class="job-body" id="job-body" data-job-body>
 {{JOB_BODY}}
-            </article>
-            <aside class="job-aside">
-                <div class="job-aside-card">
-                    <h2>Ihr Kontakt</h2>
-                    <div class="job-person">
-                        <img src="/images/sandra.webp" alt="Sandra Kohlweg" width="56" height="56">
-                        <p><strong>Sandra Kohlweg</strong><br>Headhunterin · Kohlweg Headhunting<br><span>Antwort meist innerhalb von zwei Werktagen</span></p>
-                    </div>
+            <!-- Immer dabei: Kontakt und Vertraulichkeit (wird auch in der Listenansicht rechts angezeigt) -->
+            <section class="job-section job-contact-section">
+                <h2>Ihr Kontakt</h2>
+                <div class="job-contact">
+                    <img src="/images/sandra.webp" alt="Sandra Kohlweg" width="64" height="64">
+                    <p><strong>Sandra Kohlweg</strong><br>Headhunterin · Kohlweg Headhunting<br><span>Antwort meist innerhalb von zwei Werktagen</span></p>
                 </div>
-                <div class="job-aside-card">
-                    <p class="job-note"><i data-lucide="shield-check"></i>Den Namen des Unternehmens nenne ich Ihnen im ersten persönlichen Gespräch. Ihre Bewerbung behandle ich vertraulich und gebe sie nur mit Ihrer Zustimmung weiter.</p>
-                </div>
-                <div class="job-aside-card">
-                    <h2>Weitere Stellen</h2>
-                    <a class="job-aside-link" href="/jobs/">Alle offenen Stellen <i data-lucide="arrow-right"></i></a>
-                </div>
-            </aside>
-        </div>
+            </section>
+            <section class="job-section">
+                <p class="job-note"><i data-lucide="shield-check"></i>Den Namen des Unternehmens nenne ich Ihnen im ersten persönlichen Gespräch. Ihre Bewerbung behandle ich vertraulich und gebe sie nur mit Ihrer Zustimmung weiter.</p>
+            </section>
+        </article>
+        <a class="job-back job-back-bottom" href="/jobs/"><i data-lucide="arrow-left"></i>Alle offenen Stellen</a>
     </div>
 </main>
 

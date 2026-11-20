@@ -44,7 +44,7 @@ Nur die Zahl, z. B. `7`. Die Vorlage schreibt „offene Stellen“ bzw. „open 
 - `data-bereich`: Schlüssel für die Filter-Chips (klein, ohne Umlaute). Die Chips baut das Script aus den vorhandenen Werten, `data-bereich-label` ist der angezeigte Name.
 - `data-ort`: Suchbegriffe für das Feld „Wo“ (Ort, Bundesland, Land).
 - Reihenfolge der Kacheln = Reihenfolge der Liste (neueste zuerst).
-- Leere Liste: `{{JOB_LIST}}` leer lassen, `{{JOB_COUNT}}` = `0`. Die Seite zeigt dann einen Hinweis.
+- Leere Liste: `{{JOB_LIST}}` = `<div class="job-none"><p>…</p></div>`, `{{JOB_COUNT}}` = `0`. Die Vorlage blendet dann ihren eigenen Hinweis aus.
 
 Am Desktop lädt die Liste beim Klick die Detailseite der Kachel und zeigt deren `{{JOB_BODY}}` rechts an. Auf dem Handy öffnet die Kachel die Detailseite.
 
@@ -81,7 +81,7 @@ Am Desktop lädt die Liste beim Klick die Detailseite der Kachel und zeigt deren
 </section>
 ```
 
-- `job-apply` mit `href="#"` und `data-title`: Das Script setzt `mailto:` mit Betreff „Bewerbung: <Titel>“ bzw. „Application: <title>“. Die Adresse steht nicht im HTML (Schutz vor Spam-Bots).
+- Bewerben (`a.job-apply` oder `a.job-apply-link`) mit `href="#"`: Das Script setzt `mailto:cv@kohlweg.de`. Betreff ist `data-subject`, wenn vorhanden (mit Slug, damit das CRM die Bewerbung zuordnet), sonst „Bewerbung: <data-title>“ bzw. „Application: <data-title>“. Die Adresse steht nicht im HTML (Schutz vor Spam-Bots).
 - `job-copy` mit `data-job-copy` kopiert die Adresse der Stelle.
 - Kontakt (Sandra), Vertraulichkeitshinweis und „Alle Stellen“ stehen bereits in der Vorlage, nicht in `{{JOB_BODY}}`.
 - In `<section class="job-section">` sind `h2`, `h3`, `p`, `ul`, `ol`, `a` gestaltet. Weitere Klassen: `job-facts`/`job-fact`, `job-salary`, `job-note`.
@@ -93,3 +93,43 @@ Am Desktop lädt die Liste beim Klick die Detailseite der Kachel und zeigt deren
 - `/jobs/sitemap-jobs.xml`: Sitemap aller Stellenseiten (DE und EN), in `robots.txt` eingetragen.
 - `/jobs/_vorlagen/.htaccess`: sperrt die Vorlagen für Browser (403), SFTP-Zugriff bleibt möglich.
 - `/css/jobs.css`, `/js/jobs.js`: Gestaltung und Verhalten aller Jobseiten. Werden mit der Website hochgeladen, nicht vom CRM.
+
+## Markup, das das CRM aktuell erzeugt (gestaltet in `/css/jobs.css`)
+
+Beide Varianten sind gestaltet: die Beispiele oben und das folgende Markup des CRM.
+
+Detail (`{{JOB_BODY}}`):
+
+```html
+<article class="job">
+  <h1>Titel</h1>
+  <dl class="job-facts"><dt>Ort</dt><dd>…</dd><dt>Arbeitszeit</dt><dd>…</dd><dt>Bereich</dt><dd>…</dd><dt>Gehalt</dt><dd>…</dd></dl>
+  <div class="job-text"><p>…</p><h2>Ihre Aufgaben</h2><ul><li>…</li></ul></div>
+  <p class="job-company">Industrieunternehmen, Maschinenbau</p>          <!-- optional -->
+  <ul class="job-tags"><li class="job-tag">Vollzeit</li></ul>            <!-- optional -->
+  <section class="job-salary"><p>Jahresbruttogehalt ab …</p></section>   <!-- optional, nach job-text -->
+  <p class="job-apply"><a class="job-apply-link button" href="#" data-title="Titel" data-subject="Bewerbung: Titel (slug)">Jetzt bewerben</a></p>
+  <p class="job-legal"><a href="…">Datenschutz</a> · <a href="…">Impressum</a></p>
+</article>
+```
+
+Liste (`{{JOB_LIST}}`):
+
+```html
+<article class="job-card">
+  <h2><a href="/jobs/<slug>.html">Titel</a></h2>
+  <p class="job-meta">Ort · Bereich</p>
+  <p class="job-date">Veröffentlicht am <time datetime="2026-11-18">18.11.2026</time></p>
+  <a class="job-more" href="/jobs/<slug>.html">Zur Stelle</a>
+</article>
+```
+
+Leere Liste: `<div class="job-none"><p>…</p></div>` mit `{{JOB_COUNT}}` = `0` (die Vorlage blendet ihren eigenen Hinweis dann aus).
+Zusätzlich an `article.job-card`: `data-bereich`, `data-bereich-label` (Filter-Chips), `data-ort` (Feld „Wo“) sowie `p.job-card-company`, `ul.job-tags`, `p.job-card-snippet`.
+
+## Darstellung wie im Prototyp (`/jobs-1/`)
+
+`/js/jobs.js` bringt das CRM-Markup im Browser in den Aufbau des Prototyps: Kopf mit Titel, Bereich, Ort · Arbeitszeit, „Jetzt bewerben“ und „Link kopieren“ (bleibt beim Scrollen stehen), Eckdaten als Kacheln „Auf einen Blick“, ein Abschnitt je `h2`. Kacheln bis 7 Tage alt bekommen „Neu“.
+Kontakt (Sandra mit Foto) und Vertraulichkeitshinweis stehen in der Detail-Vorlage innerhalb von `data-job-body` und erscheinen dadurch auch rechts in der Liste.
+Für die Kopfzeile liest das Script die Eckdaten über ihre Bezeichnungen: `Ort`/`Location`, `Arbeitszeit`/`Working hours`, `Bereich`/`Area` (sonst Position 1–3).
+Für Kacheln wie im Prototyp (anonymer Firmenname, Merkmale, Teaser) müsste das CRM zusätzlich `job-card-company`, `job-tags` und `job-card-snippet` liefern.

@@ -63,27 +63,21 @@
 <main class="job-page">
     <div class="job-page-inner">
         <a class="job-back" href="/jobs/en/"><i data-lucide="arrow-left"></i>All positions</a>
-        <div class="job-page-grid">
-            <article class="job-body" id="job-body" data-job-body>
+        <article class="job-body" id="job-body" data-job-body>
 {{JOB_BODY}}
-            </article>
-            <aside class="job-aside">
-                <div class="job-aside-card">
-                    <h2>Your contact</h2>
-                    <div class="job-person">
-                        <img src="/images/sandra.webp" alt="Sandra Kohlweg" width="56" height="56">
-                        <p><strong>Sandra Kohlweg</strong><br>Headhunter · Kohlweg Headhunting<br><span>Usually replies within two working days</span></p>
-                    </div>
+            <!-- Immer dabei: Kontakt und Vertraulichkeit (wird auch in der Listenansicht rechts angezeigt) -->
+            <section class="job-section job-contact-section">
+                <h2>Your contact</h2>
+                <div class="job-contact">
+                    <img src="/images/sandra.webp" alt="Sandra Kohlweg" width="64" height="64">
+                    <p><strong>Sandra Kohlweg</strong><br>Headhunter · Kohlweg Headhunting<br><span>Usually replies within two working days</span></p>
                 </div>
-                <div class="job-aside-card">
-                    <p class="job-note"><i data-lucide="shield-check"></i>I will tell you the company’s name in our first personal conversation. Your application is treated confidentially and only passed on with your consent.</p>
-                </div>
-                <div class="job-aside-card">
-                    <h2>More positions</h2>
-                    <a class="job-aside-link" href="/jobs/en/">All open positions <i data-lucide="arrow-right"></i></a>
-                </div>
-            </aside>
-        </div>
+            </section>
+            <section class="job-section">
+                <p class="job-note"><i data-lucide="shield-check"></i>I will tell you the company’s name in our first personal conversation. Your application is treated confidentially and only passed on with your consent.</p>
+            </section>
+        </article>
+        <a class="job-back job-back-bottom" href="/jobs/en/"><i data-lucide="arrow-left"></i>All open positions</a>
     </div>
 </main>
 

@@ -59,8 +59,8 @@
 .job-card-date { display: block; margin-top: 10px; font-size: 12px; color: var(--color-slate-400, #94a3b8); }
 
 .job-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
-.job-tag { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--color-slate-700, #334155); background: var(--job-tint-2); border-radius: 6px; padding: 4px 8px; }
-.job-tag svg { width: 13px; height: 13px; }
+.job-tag, .job-tags > li { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--color-slate-700, #334155); background: var(--job-tint-2); border-radius: 6px; padding: 4px 8px; }
+.job-tag svg, .job-tags > li svg { width: 13px; height: 13px; flex: none; }
 
 .job-empty { background: #fff; border: 1px dashed var(--job-line-strong); border-radius: 16px; padding: 28px 20px; text-align: center; color: var(--job-muted); font-size: 14px; line-height: 1.6; }
 .job-empty strong { display: block; color: var(--job-ink); font-size: 16px; margin-bottom: 4px; }
@@ -77,7 +77,7 @@
 
 /* ================= DETAIL (auch im rechten Bereich der Liste) ================= */
 .job-page { padding: 24px 16px 64px; }
-.job-page-inner { max-width: 72rem; margin: 0 auto; }
+.job-page-inner { max-width: 52rem; margin: 0 auto; }
 .job-back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; font-size: 14px; font-weight: 700; color: var(--job-brand); text-decoration: none; }
 .job-back:hover { text-decoration: underline; }
 .job-back svg { width: 18px; height: 18px; }
@@ -90,10 +90,10 @@
 .job-company, .job-location { margin: 0; font-size: 15px; line-height: 1.5; }
 .job-company { color: var(--job-muted); }
 .job-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-.job-apply, .job-copy { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 11px 20px; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: all .15s; font-family: inherit; }
-.job-apply svg, .job-copy svg { width: 17px; height: 17px; }
-.job-apply { background: var(--job-brand); color: #fff; box-shadow: 0 6px 16px rgba(176, 27, 49, .2); }
-.job-apply:hover { background: var(--job-brand-dark); color: #fff; }
+a.job-apply, .job-copy { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 11px 20px; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: all .15s; font-family: inherit; }
+a.job-apply svg, .job-copy svg { width: 17px; height: 17px; }
+a.job-apply { background: var(--job-brand); color: #fff; box-shadow: 0 6px 16px rgba(176, 27, 49, .2); }
+a.job-apply:hover { background: var(--job-brand-dark); color: #fff; }
 .job-copy { background: #fff; color: var(--job-text); border-color: var(--job-line); }
 .job-copy:hover { border-color: var(--job-brand); color: var(--job-brand); }
 
@@ -140,7 +140,7 @@
 .job-gone-en h2 { font-size: 20px; font-weight: 700; color: var(--job-ink); margin: 0 0 8px; }
 
 /* ================= Fokus, Responsive ================= */
-.job-submit:focus-visible, .job-chip:focus-visible, .job-card:focus-visible, .job-apply:focus-visible,
+.job-submit:focus-visible, .job-chip:focus-visible, .job-card:focus-visible, a.job-apply:focus-visible,
 .job-copy:focus-visible, .job-back:focus-visible, .job-aside-link:focus-visible, .job-pane-more:focus-visible { outline: 2px solid var(--job-brand); outline-offset: 2px; }
 
 @media (max-width: 1023px) {
@@ -159,3 +159,93 @@
     .job-page { padding: 16px 12px 48px; }
 }
 @media (prefers-reduced-motion: reduce) { .job-shell *, .job-page * { transition: none !important; } }
+
+/* ================= Markup aus dem CRM =================
+   Detail: article.job > h1, dl.job-facts (dt/dd ohne Wrapper), div.job-text, p.job-apply > a.button, p.job-legal
+   Liste:  article.job-card > h2 > a, p.job-meta, p.job-date, a.job-more; leere Liste: div.job-none
+   Reines CSS, wird nicht von Tailwind verarbeitet und daher nicht entfernt.               */
+.job-body .job { padding: 24px 28px 28px; }
+.job-pane .job { padding: 24px 28px 8px; }
+.job > h1 { font-family: var(--font-serif, serif); font-size: clamp(24px, 2.6vw, 32px); line-height: 1.2; font-weight: 700; color: var(--job-ink); margin: 0 0 18px; text-wrap: balance; }
+
+/* Eckdaten: je dt/dd-Paar eine Spalte */
+.job > .job-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr); column-gap: 16px; row-gap: 10px; align-items: baseline; margin: 0 0 24px; padding: 16px 20px; background: var(--job-tint); border: 1px solid var(--job-tint-2); border-radius: 12px; }
+.job > .job-facts dt { font-size: 12px; font-weight: 600; color: var(--job-muted); }
+.job > .job-facts dd { margin: 0 12px 0 0; font-weight: 600; color: var(--job-ink); line-height: 1.45; overflow-wrap: break-word; }
+
+/* Fließtext */
+.job-text { color: var(--job-text); line-height: 1.7; }
+.job-text > * { max-width: 68ch; }
+.job-text p { margin: 0 0 12px; }
+.job-text h2 { font-size: 18px; font-weight: 700; color: var(--job-ink); margin: 26px 0 10px; padding-top: 20px; border-top: 1px solid var(--job-tint-2); }
+.job-text h3 { font-size: 15px; font-weight: 700; color: var(--job-ink); margin: 18px 0 6px; }
+.job-text ul, .job-text ol { margin: 0 0 12px; padding-left: 22px; }
+.job-text ul { list-style: disc; }
+.job-text ol { list-style: decimal; }
+.job-text li { margin-bottom: 6px; padding-left: 2px; }
+.job-text li::marker { color: var(--job-brand); }
+.job-text a { color: var(--job-brand); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.job-text strong { color: var(--job-ink); }
+
+/* Bewerben-Knopf */
+p.job-apply { margin: 28px 0 0; padding-top: 24px; border-top: 1px solid var(--job-line); }
+.job-apply .button, a.job-apply { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 24px; font-weight: 700; font-size: 15px; text-decoration: none; background: var(--job-brand); color: #fff; box-shadow: 0 6px 16px rgba(176, 27, 49, .2); transition: background .15s; }
+.job-apply .button:hover { background: var(--job-brand-dark); color: #fff; }
+.job-apply .button:focus-visible { outline: 2px solid var(--job-brand); outline-offset: 2px; }
+.job-legal { margin: 16px 0 0; font-size: 12px; color: var(--job-muted); }
+.job-legal a { color: var(--job-muted); text-decoration: underline; text-underline-offset: 2px; }
+.job-legal a:hover { color: var(--job-brand); }
+
+/* Kachel (CRM): ganze Kachel klickbar über den Titel-Link */
+article.job-card h2 { font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--job-ink); margin: 0 0 6px; text-wrap: balance; }
+article.job-card h2 a { color: inherit; text-decoration: none; }
+article.job-card h2 a::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+article.job-card:hover h2 a { text-decoration: underline; text-underline-offset: 3px; }
+article.job-card h2 a:focus-visible { outline: none; }
+article.job-card:has(h2 a:focus-visible) { outline: 2px solid var(--job-brand); outline-offset: 2px; }
+.job-meta { margin: 0; font-size: 14px; line-height: 1.5; color: var(--job-text); }
+.job-date { margin: 8px 0 0; font-size: 12px; color: var(--color-slate-400, #94a3b8); }
+.job-more { position: relative; z-index: 1; display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--job-brand); text-decoration: none; }
+.job-more:hover { text-decoration: underline; }
+.job-none { background: #fff; border: 1px dashed var(--job-line-strong); border-radius: 16px; padding: 28px 20px; text-align: center; color: var(--job-muted); font-size: 14px; line-height: 1.6; }
+.job-none p { margin: 0; }
+
+@media (max-width: 640px) {
+    .job-body .job, .job-pane .job { padding: 18px 16px 20px; }
+    .job > .job-facts { grid-template-columns: max-content minmax(0, 1fr); column-gap: 14px; row-gap: 8px; }
+}
+
+/* ================= Aufbau wie Prototyp (jobs-1) =================
+   jobs.js baut article.job um: Kopf (Titel, Ort, Bereich, Bewerben, Link kopieren),
+   „Auf einen Blick“-Kacheln, Abschnitte je Zwischenüberschrift.                  */
+.job.is-enhanced { padding: 0; }
+.job.is-enhanced > p.job-apply { margin: 0; padding: 20px 28px 4px; border-top: 1px solid var(--job-tint-2); }
+.job.is-enhanced > .job-legal { margin: 0; padding: 8px 28px 20px; }
+.job-page .job-header { position: sticky; top: var(--job-header); z-index: 5; background: #fff; border-radius: 16px 16px 0 0; }
+.job-back-bottom { margin: 20px 0 0; }
+.job-contact { display: flex; gap: 16px; align-items: center; background: var(--job-tint); border-radius: 16px; padding: 16px; }
+.job-contact img { width: 64px; height: 64px; border-radius: 999px; object-fit: cover; flex: none; }
+.job-contact p { margin: 0; line-height: 1.5; }
+.job-contact span { color: var(--job-muted); font-size: 13px; }
+.job-body .job-section .job-note { margin: 0; }
+article.job-card .job-more { display: none; }
+.job-section.job-text h2 { margin: 0 0 10px; padding: 0; border: 0; }
+.job-section.job-text > :last-child { margin-bottom: 0; }
+article.job-card .job-new { margin-bottom: 8px; }
+@media (max-width: 640px) {
+    .job-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .job-fact { padding: 10px 12px; }
+}
+@media (max-width: 1023px) {
+    .job.is-enhanced > p.job-apply, .job.is-enhanced > .job-legal { padding-left: 16px; padding-right: 16px; }
+}
+
+/* Gehalt als Abschnitt (section/div.job-salary vom CRM): Kasten nur um den Text */
+.job-salary:not(p) { background: none; border-left: 0; border-radius: 0; padding: 20px 28px; max-width: none; font-size: inherit; }
+.job-salary:not(p) > p { background: var(--job-brand-soft); border-left: 4px solid var(--job-brand); border-radius: 0 12px 12px 0; padding: 12px 16px; margin: 0 0 8px; font-size: 14px; line-height: 1.6; max-width: 68ch; }
+.job-salary:not(p) > p:last-child { margin-bottom: 0; }
+.job-header .job-tags { margin-top: 10px; }
+@media (max-width: 1023px) { .job-salary:not(p) { padding-left: 16px; padding-right: 16px; } }
+
+/* Überschrift „Offene Stellen“ über der Suche */
+.job-heading { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600; color: var(--job-ink); }
