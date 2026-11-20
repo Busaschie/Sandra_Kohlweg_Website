@@ -2,12 +2,12 @@
 (function () {
     var EN = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
     var T = EN ? {
-        one: 'open position', many: 'open positions', all: 'All',
+        one: '1 open position', many: 'Open positions', none0: 'No open positions at the moment', all: 'All',
         copy: 'Copy link', copied: 'Link copied', subject: 'Application: ', more: 'Open job page', glance: 'At a glance', isNew: 'New',
         keys: { loc: ['location', 'place'], hours: ['working hours', 'hours', 'type'], area: ['area', 'field', 'department'] },
         none: 'No matching position found', noneText: 'Change your search or write to me directly – I fill many positions without advertising them.'
     } : {
-        one: 'offene Stelle', many: 'offene Stellen', all: 'Alle',
+        one: '1 offene Stelle', many: 'Offene Stellen', none0: 'Derzeit keine offenen Stellen', all: 'Alle',
         copy: 'Link kopieren', copied: 'Link kopiert', subject: 'Bewerbung: ', more: 'Zur Stellenseite', glance: 'Auf einen Blick', isNew: 'Neu',
         keys: { loc: ['ort', 'standort'], hours: ['arbeitszeit'], area: ['bereich'] },
         none: 'Keine passende Stelle gefunden', noneText: 'Ändern Sie die Suche oder schreiben Sie mir direkt – viele Stellen besetze ich, ohne sie auszuschreiben.'
@@ -185,7 +185,7 @@
         Object.keys(seen).sort().forEach(function (k) { addChip(k, seen[k]); });
     }
 
-    function setCount(n) { countEl.textContent = n + ' ' + (n === 1 ? T.one : T.many); }
+    function setCount(n) { countEl.textContent = n === 0 ? T.none0 : n === 1 ? T.one : T.many + ' (' + n + ')'; } // Überschrift links, live (aria-live)
 
     function show(card) {
         if (!card || !pane) return;

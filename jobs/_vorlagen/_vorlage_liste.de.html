@@ -63,23 +63,22 @@
 <main class="job-shell">
     <div class="job-search">
         <div class="job-search-inner">
-            <h1 class="job-heading">Offene Stellen</h1>
+            <h1 class="job-heading"><span id="job-count" aria-live="polite">Offene Stellen ({{JOB_COUNT}})</span></h1>
             <form class="job-form" id="job-form" role="search">
                 <div class="job-field">
                     <i data-lucide="search"></i>
-                    <label for="job-q">Was</label>
+                    <label class="job-sr" for="job-q">Jobtitel, Stichwort oder Bereich</label>
                     <input id="job-q" name="q" type="search" placeholder="Jobtitel, Stichwort, Bereich" autocomplete="off">
                 </div>
                 <div class="job-field">
                     <i data-lucide="map-pin"></i>
-                    <label for="job-l">Wo</label>
+                    <label class="job-sr" for="job-l">Ort oder Region</label>
                     <input id="job-l" name="l" type="search" placeholder="Ort oder Region" autocomplete="off">
                 </div>
                 <button class="job-submit" type="submit">Jobs finden</button>
             </form>
             <div class="job-bar">
                 <div class="job-chips" id="job-chips" role="group" aria-label="Nach Bereich filtern"></div>
-                <span class="job-count" id="job-count" aria-live="polite">{{JOB_COUNT}} offene Stellen</span>
             </div>
         </div>
     </div>
